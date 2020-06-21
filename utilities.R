@@ -11,11 +11,10 @@ getIPLBatsmen <- function(dir="."){
   cwd=getwd()
   print("iplbatsmen")
   cat("iplbats=",cwd)
-  setwd(dir)
   battingDF <- NULL
   for(team in teams){
     battingDetails <- NULL
-    val <- paste(team,"-BattingDetails.RData",sep="")
+    val <- paste(dir,"/",team,"-BattingDetails.RData",sep="")
     print(val)
     tryCatch(load(val),
              error = function(e) {
@@ -47,7 +46,6 @@ getIPLBatsmen <- function(dir="."){
   
   # Create all batsmen from all teams for display in UI
   save(iplBatsmen, file="IPLbatsmen.RData")
-  setwd(cwd)
   cat("iplba=",getwd())
 }
 
@@ -61,16 +59,16 @@ getTeamIndex <- function(batsman,dir="."){
 
   cwd=getwd()
 
-
   cat("Entering teamIndex",getwd(),"\n")
   cat("cwd=",cwd,"\n")
-  setwd(dir)
   cat(getwd(),"\n")
+  cat(dir(dir),"\n")
 
   for(team in teams){
      # Set the name of the data frame
      val <- paste(team,"-batsmen",sep="")
-     batsmen <- paste(team,"-batsmen.Rds",sep="")
+     batsmen <- paste(cwd,'/',dir,"/",team,"-batsmen.rds",sep="")
+     cat("tibat=",batsmen,"\n")
      df <-readRDS(batsmen)
      #Assign a name to the dataframe
      m <-assign(val,df)
@@ -90,7 +88,6 @@ getTeamIndex <- function(batsman,dir="."){
     if(length(a) != 0)
       b <- c(b,i)
   }
-  setwd(cwd)
   cat("Exiting teamindex=",getwd(),"\n")
   b
 
@@ -107,12 +104,10 @@ getIPLBowlers <- function(dir="."){
   cwd=getwd()
   cat("bowlers=",cwd,"\n")
   print(dir)
-  setwd(dir)
-  print(getwd())
   bowlingDF <- NULL
   for(team in teams){
     bowlingDetails <- NULL
-    val <- paste(team,"-BowlingDetails.RData",sep="")
+    val <- paste(dir,"/",team,"-BowlingDetails.RData",sep="")
     print(val)
     tryCatch(load(val),
              error = function(e) {
@@ -144,7 +139,6 @@ getIPLBowlers <- function(dir="."){
   
   # Create all batsmen from all teams for display in UI
   save(iplBowlers, file="IPLbowlers.RData")
-  setwd(cwd)
   cat("bowlers=",getwd(),"\n")
 }
 
@@ -159,12 +153,12 @@ getTeamIndex_bowler <- function(bowler,dir="."){
   cwd=getwd()
   cat("Entering teamIndex_bowlers",getwd(),"\n")
   cat("cwd=",cwd,"\n")
-  setwd(dir)
+
   cat(getwd(),"\n")  
   for(team in teams){
     # Set the name of the data frame
     val <- paste(team,"-bowlers",sep="")
-    bowlers <- paste(team,"-bowlers.Rds",sep="")
+    bowlers <- paste(dir,"/",team,"-bowlers.rds",sep="")
     df <-readRDS(bowlers)
     #Assign a name to the dataframe
     m <-assign(val,df)
@@ -184,7 +178,6 @@ getTeamIndex_bowler <- function(bowler,dir="."){
     if(length(a) != 0)
       b <- c(b,i)
   }
-  setwd(cwd)
   cat("Exiting teamindex_bowlers=",getwd(),"\n")
   b
 }

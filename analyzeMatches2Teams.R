@@ -12,7 +12,7 @@ analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opp
     
     # Check and get the team indices of IPL teams in which the bowler has played
     print("Here...........")
-    IPLmatch <- paste("./ipl/IPLMatches2Teams/", match2,".RData",sep="")
+    IPLmatch <- paste("./ipl/iplMatches2Teams/", match2,".RData",sep="")
     load(IPLmatch)
     matchesDF <- matches
     

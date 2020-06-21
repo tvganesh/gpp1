@@ -17,7 +17,8 @@ analyzeBatsmen <- function(batsman,func) {
         return()
     
     # Check and get the team indices of IPL teams in which the batsman has played
-    i <- getTeamIndex(batsman,"./ipl/iplBattingBowlingDetails")
+    i <- getTeamIndex(batsman,"./ipl/iplBattingBowlingDetails/")
+    cat("i=",i,"\n")
     cat("analyze=",getwd())
     # Get the team names
     teamNames <- getTeams(i)
