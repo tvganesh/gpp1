@@ -30,14 +30,14 @@ source('printOrPlotTeamPerfOverall.R')
 shinyServer(function(input, output,session) {
     
     # Analyze and display batsmen plots
-    output$batsmanPlot <- renderPlot({  
-        analyzeBatsmen(input$batsman,input$batsmanFunc)
+    output$batsmanPlotIPL <- renderPlot({  
+        analyzeBatsmen(input$batsmanIPL,input$batsmanFuncIPL, 'IPL')
         
     })
     
     # Analyze and display bowler plots
-    output$bowlerPlot <- renderPlot({  
-        analyzeBowlers(input$bowler,input$bowlerFunc)
+    output$bowlerPlotIPL <- renderPlot({  
+        analyzeBowlers(input$bowlerIPL,input$bowlerFuncIPL)
         
     })
     
@@ -119,4 +119,13 @@ shinyServer(function(input, output,session) {
         }
     })   
 
+    
+###########################################
+# T20 Men
+    
+    # Analyze and display batsmen plots
+    output$batsmanPlotT20M <- renderPlot({  
+      analyzeBatsmen(input$batsmanT20M,input$batsmanFuncT20M, "T20")
+      
+    })
 })

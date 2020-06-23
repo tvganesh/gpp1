@@ -9,25 +9,39 @@
 #########################################################################################################
 
 # Analyze IPL batsmen
-analyzeBatsmen <- function(batsman,func) {
-   #print(batsman)
+analyzeBatsmen <- function(batsman,func, t20type="IPL") {
+    print(batsman)
     
     # Return when name is NULL at start
     if(is.null(batsman))
         return()
     
-    # Check and get the team indices of IPL teams in which the batsman has played
-    i <- getTeamIndex(batsman,"./ipl/iplBattingBowlingDetails/")
+    if(t20type == "IPL"){
+        dir1="./ipl/iplBattingBowlingDetails/"
+        # Check and get the team indices of IPL teams in which the batsman has played
+        i <- getTeamIndex(batsman, dir1)
+        # Get the team names
+        teamNames <- getTeams(i)
+    }
+    else if (t20type == "T20"){
+        dir1="./t20/t20BattingBowlingDetails/"
+        i <- getT20MTeamIndex(batsman, dir1)
+        # Get the team names
+        teamNames <- getT20MTeams(i)
+    }
+    
+
+    
+
     cat("i=",i,"\n")
     cat("analyze=",getwd())
-    # Get the team names
-    teamNames <- getTeams(i)
+
     # Check if file exists in the directory. This check is necessary when moving between matchType
     
     batsmanDF <- NULL
     # Create a consolidated Data frame of batsman for all IPL teams played
     for (i in seq_along(teamNames)){
-          df <- getBatsmanDetails(team=teamNames[i],name=batsman,dir="./ipl/iplBattingBowlingDetails")
+          df <- getBatsmanDetails(team=teamNames[i],name=batsman,dir=dir1)
           batsmanDF <- rbind(batsmanDF,df) 
     }
     print(dim(batsmanDF))

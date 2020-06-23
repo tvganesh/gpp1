@@ -31,11 +31,11 @@ shinyUI(fluidPage(
                                  tabPanel("IPL batsman", value = "IPL",
                                           h4('Analyze IPL batsman performances'),
                                           sidebarPanel(
-                                            selectInput('batsmanFunc', 'Select function', batsmanFuncs),
-                                            selectInput('batsman', 'Select batsman', IPLBatsmen,selectize=FALSE, size=20),
+                                            selectInput('batsmanFuncIPL', 'Select function', batsmanFuncs),
+                                            selectInput('batsmanIPL', 'Select batsman', IPLBatsmen,selectize=FALSE, size=20),
                                           ),
                                           mainPanel(
-                                            plotOutput('batsmanPlot'),
+                                            plotOutput('batsmanPlotIPL'),
                                             column(7, offset=4,
                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
                                                    tags$h5((tags$i("Dec 25,2016"))),
@@ -50,13 +50,13 @@ shinyUI(fluidPage(
                                           h4('Analyze IPL bowler performances'),
                                           
                                           sidebarPanel(
-                                            selectInput('bowlerFunc', 'Select function', bowlerFuncs),
-                                            selectInput('bowler', 'Select IPL bowler', IPLBowlers,selectize=FALSE, size=20)
+                                            selectInput('bowlerFuncIPL', 'Select function', bowlerFuncs),
+                                            selectInput('bowlerIPL', 'Select IPL bowler', IPLBowlers,selectize=FALSE, size=20)
                                             
                                             
                                           ),
                                           mainPanel(
-                                            plotOutput('bowlerPlot'),
+                                            plotOutput('bowlerPlotIPL'),
                                             column(7, offset=4,
                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
                                                    tags$h5((tags$i("Dec 25,2016"))),
@@ -155,11 +155,11 @@ shinyUI(fluidPage(
                                          tabPanel("Intl T20 batsman",
                                                   h4('Analyze Intl T20 batsman performances'),
                                                   sidebarPanel(
-                                                    selectInput('batsmanFunc1', 'Select function', batsmanFuncs),
-                                                    selectInput('batsman1', 'Select batsman', T20MBatsmen,selectize=FALSE, size=20),
+                                                    selectInput('batsmanFuncT20M', 'Select function', batsmanFuncs),
+                                                    selectInput('batsmanT20M', 'Select batsman', T20MBatsmen,selectize=FALSE, size=20),
                                                   ),
                                                   mainPanel(
-                                                    plotOutput('batsmanPlot'),
+                                                    plotOutput('batsmanPlotT20M'),
                                                     column(7, offset=4,
                                                            tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
                                                            tags$h5((tags$i("Dec 25,2016"))),
@@ -167,110 +167,6 @@ shinyUI(fluidPage(
                                                     )
                                                   )
                                                   
-                                         ),
-                                         # Bowlers tab
-                                         tabPanel("Intl. T20 bowlers",
-                                                  
-                                                  h4('Analyze Intl. T20 bowler performances'),
-                                                  
-                                                  sidebarPanel(
-                                                    selectInput('bowlerFunc1', 'Select function', bowlerFuncs),
-                                                    selectInput('bowler1', 'Select IPL bowler', T20MBowlers,selectize=FALSE, size=20)
-                                                    
-                                                    
-                                                  ),
-                                                  mainPanel(
-                                                    plotOutput('bowlerPlot'),
-                                                    column(7, offset=4,
-                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
-                                                    )
-                                                  )
-                                                  
-                                         ),
-                                         # Analyze IPL matches
-                                         tabPanel("Intl T20 Match",
-                                                  h4('Analyze an Intl T20 match'),
-                                                  sidebarPanel(
-                                                    selectInput('matchFunc1', 'Select match function', matchFuncs),
-                                                    selectInput('match1', 'Select IPL match ', T20MMatches,selectize=FALSE, size=15),
-                                                    uiOutput("selectTeam"),
-                                                    radioButtons("plotOrTable", label = h4("Plot or table"),
-                                                                 choices = c("Plot" = 1, "Table" = 2), 
-                                                                 selected = 1,inline=T)
-                                                    
-                                                  ),
-                                                  mainPanel(
-                                                    uiOutput("plotOrPrintIPLMatch"),
-                                                    column(7, offset=4,
-                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
-                                                    )
-                                                  )
-                                                  
-                                         ),
-                                         # Analyze 2 Teams IPL matches
-                                         tabPanel("Head to head",
-                                                  h4('Head-to-head between 2 Intl. T20 teams'),
-                                                  sidebarPanel(
-                                                    selectInput('matches2TeamFunc1', 'Select function', matches2TeamsFuncs),
-                                                    selectInput('match21', 'Select matches', T20MMatches2Teams,selectize=FALSE, size=13),                                
-                                                    uiOutput("selectTeam2"),
-                                                    radioButtons("plotOrTable1", label = h4("Plot or table"),
-                                                                 choices = c("Plot" = 1, "Table" = 2), 
-                                                                 selected = 1,inline=T),
-                                                    radioButtons("repType", label = h4("Report Type"),
-                                                                 choices = c("Summary" = 1, "Detailed" = 2), 
-                                                                 selected = 1,inline=T)
-                                                    
-                                                  ),
-                                                  mainPanel(
-                                                    uiOutput("plotOrPrintIPLMatch2teams"),
-                                                    column(7, offset=4,
-                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
-                                                    )
-                                                  ) 
-                                                  
-                                         ),
-                                         # Analyze IPL Team Overall Perf
-                                         tabPanel("Overall Performance",
-                                                  h4("Analyze Intl T20 team's overall performance"),
-                                                  sidebarPanel(
-                                                    selectInput('overallperfFunc1', 'Select function', teamOverallPerfFunc),
-                                                    selectInput('teamMatches1', 'Select the team', T20MTeamsAll,selectize=FALSE, size=13),
-                                                    uiOutput("Rank"),
-                                                    radioButtons("plotOrTable2", label = h4("Plot or table"),
-                                                                 choices = c("Plot" = 1, "Table" = 2), 
-                                                                 selected = 1,inline=T),
-                                                    radioButtons("repType2", label = h4("Report Type"),
-                                                                 choices = c("Summary" = 1, "Detailed" = 2), 
-                                                                 selected = 1,inline=T)
-                                                  ),
-                                                  mainPanel(
-                                                    uiOutput('printOrPlotIPLTeamPerfoverall'),
-                                                    column(7, offset=4,
-                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
-                                                    )
-                                                  ) 
-                                                  
-                                         ),
-                                         
-                                         tabPanel("About",
-                                                  h3("GooglyPlus - Analyzing IPL Players, teams and matches with plots and tables"),
-                                                  p("This Shiny app is based on my R package 'yorkr'. In this Shiny app, I use  the
-                    yorkr package to analyze the performances of IPL cricketers,teams, matches."),
-                                                  p("The R package 'yorkr' has been authored by Tinniam V Ganesh for analyzing  performances of IPL cricketers
-                    teams, individudal IPL match, head-to-head and IPL teamds"),
-                                                  p("This Shiny app 'GooglyPlus' has been designed and developed by  Tinniam V Ganesh, Dec 25 2016"),
-                                                  p("The data for this Shiny app has been taken from Cricsheet - http://http://cricsheet.org/"),
-                                                  p("More details about this app and for other posts, see my blog
-                    http://gigadom.wordpress.com/")
                                          ))),
     tabPanel("Data Summary", verbatimTextOutput("summary1"))
     ,
