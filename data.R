@@ -9,7 +9,7 @@
 #########################################################################################################
 load("./ipl/iplBattingBowlingDetails/IPLbatsmen.RData")
 IPLBatsmen <-iplBatsmen
-cat("lebthbatsm=",length(IPLBatsmen),"\n")
+cat("lengthbatsm=",length(IPLBatsmen),"\n")
 
 load("./ipl/iplBattingBowlingDetails/IPLbowlers.RData")
 IPLBowlers <-iplBowlers
@@ -23,3 +23,40 @@ IPLMatches2Teams <- gsub(".RData","",a1)
 
 a2 <-list.files("./ipl/iplAllMatchesAllTeams/")
 IPLTeamsAll <- gsub(".RData","",a2)
+
+# IPL Team names
+IPLTeamNames <- list("Chennai Super Kings","Deccan Chargers","Delhi Daredevils",
+                     "Kings XI Punjab", 'Kochi Tuskers Kerala',"Kolkata Knight Riders",
+                     "Mumbai Indians", "Pune Warriors","Rajasthan Royals",
+                     "Royal Challengers Bangalore","Sunrisers Hyderabad","Gujarat Lions",
+                     "Rising Pune Supergiants")   
+
+############################################
+#T20 Men
+
+load("./t20/t20BattingBowlingDetails/T20Mbatsmen.RData")
+T20MBatsmen <-t20mBatsmen
+cat("lengthbatsm=",length(T20MBatsmen),"\n")
+
+load("./t20/t20BattingBowlingDetails/T20Mbowlers.RData")
+T20MBowlers <-t20mBowlers
+
+a <-list.files("./t20/t20MenMatches/")
+T20MMatches <- gsub(".RData","",a)
+cat("length=",length(T20MMatches),"\n")
+
+a1 <-list.files("./t20/t20Matches2Teams/")
+T20MMatches2Teams <- gsub(".RData","",a1)
+
+a2 <-list.files("./t20/t20AllMatchesAllTeams/")
+T20MTeamsAll <- gsub(".RData","",a2)
+
+# T20 Men Team names
+T20MTeamNames <- list("Australia","India","Pakistan","West Indies", 'Sri Lanka',
+                     "England", "Bangladesh","Netherlands","Scotland", "Afghanistan",
+                     "Zimbabwe","Ireland","New Zealand","South Africa","Canada",
+                     "Bermuda","Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
+                     "United Arab Emirates","Namibia","Cayman Islands","Singapore",
+                     "United States of America","Bhutan","Maldives","Botswana","Nigeria",
+                     "Denmark","Germany","Jersey","Norway","Qatar","Malaysia","Vanuatu",
+                     "Thailand")   

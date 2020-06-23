@@ -9,7 +9,8 @@
 #########################################################################################################
 source("data.R")
 source("definitions.R")
-source("utilities.R")
+source("IPLutilities.R")
+source("T20Mutilities.R")
 
 shinyUI(fluidPage(
   
@@ -30,7 +31,7 @@ shinyUI(fluidPage(
                                           h4('Analyze IPL batsman performances'),
                                           sidebarPanel(
                                             selectInput('batsmanFunc', 'Select function', batsmanFuncs),
-                                            selectInput('batsman', 'Select batsman', IPLBatsmen,selectize=FALSE, size=20)
+                                            selectInput('batsman', 'Select batsman', IPLBatsmen,selectize=FALSE, size=20),
                                           ),
                                           mainPanel(
                                             plotOutput('batsmanPlot'),
@@ -154,7 +155,7 @@ shinyUI(fluidPage(
                                                   h4('Analyze Intl T20 batsman performances'),
                                                   sidebarPanel(
                                                     selectInput('batsmanFunc', 'Select function', batsmanFuncs),
-                                                    selectInput('batsman', 'Select batsman', IPLBatsmen,selectize=FALSE, size=20)
+                                                    selectInput('batsman', 'Select batsman', T20MBatsmen,selectize=FALSE, size=20),
                                                   ),
                                                   mainPanel(
                                                     plotOutput('batsmanPlot'),
@@ -173,7 +174,7 @@ shinyUI(fluidPage(
                                                   
                                                   sidebarPanel(
                                                     selectInput('bowlerFunc', 'Select function', bowlerFuncs),
-                                                    selectInput('bowler', 'Select IPL bowler', IPLBowlers,selectize=FALSE, size=20)
+                                                    selectInput('bowler', 'Select IPL bowler', T20MBowlers,selectize=FALSE, size=20)
                                                     
                                                     
                                                   ),
@@ -192,7 +193,7 @@ shinyUI(fluidPage(
                                                   h4('Analyze an Intl T20 match'),
                                                   sidebarPanel(
                                                     selectInput('matchFunc', 'Select match function', matchFuncs),
-                                                    selectInput('match', 'Select IPL match ', IPLMatches,selectize=FALSE, size=15),
+                                                    selectInput('match', 'Select IPL match ', T20MMatches,selectize=FALSE, size=15),
                                                     uiOutput("selectTeam"),
                                                     radioButtons("plotOrTable", label = h4("Plot or table"),
                                                                  choices = c("Plot" = 1, "Table" = 2), 
@@ -214,7 +215,7 @@ shinyUI(fluidPage(
                                                   h4('Head-to-head between 2 Intl. T20 teams'),
                                                   sidebarPanel(
                                                     selectInput('matches2TeamFunc', 'Select function', matches2TeamsFuncs),
-                                                    selectInput('match2', 'Select matches', IPLMatches2Teams,selectize=FALSE, size=13),                                
+                                                    selectInput('match2', 'Select matches', T20MMatches2Teams,selectize=FALSE, size=13),                                
                                                     uiOutput("selectTeam2"),
                                                     radioButtons("plotOrTable1", label = h4("Plot or table"),
                                                                  choices = c("Plot" = 1, "Table" = 2), 
@@ -239,7 +240,7 @@ shinyUI(fluidPage(
                                                   h4("Analyze Intl T20 team's overall performance"),
                                                   sidebarPanel(
                                                     selectInput('overallperfFunc', 'Select function', teamOverallPerfFunc),
-                                                    selectInput('teamMatches', 'Select the team', IPLTeamsAll,selectize=FALSE, size=13),
+                                                    selectInput('teamMatches', 'Select the team', T20MTeamsAll,selectize=FALSE, size=13),
                                                     uiOutput("Rank"),
                                                     radioButtons("plotOrTable2", label = h4("Plot or table"),
                                                                  choices = c("Plot" = 1, "Table" = 2), 

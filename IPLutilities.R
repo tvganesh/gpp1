@@ -31,7 +31,7 @@ getIPLBatsmen <- function(dir="."){
     a1 <- df1 %>% distinct(batsman)
     a1$batsman = as.character(a1$batsman)
     teamBatsmen <- a1[order(a1$batsman),]
-    teamFile = paste(team,"-batsmen.rds",sep="")
+    teamFile = paste(dir,"/",team,"-batsmen.rds",sep="")
     saveRDS(teamBatsmen, file=teamFile)
     
     
@@ -45,7 +45,8 @@ getIPLBatsmen <- function(dir="."){
   iplBatsmen <- a[order(a$batsman),]
   
   # Create all batsmen from all teams for display in UI
-  save(iplBatsmen, file="IPLbatsmen.RData")
+  batsmenFile=  paste(dir,"/","IPLBatsmen.RData",sep="")
+  save(iplBatsmen, file=batsmenFile)
   cat("iplba=",getwd())
 }
 
@@ -124,7 +125,7 @@ getIPLBowlers <- function(dir="."){
     a1 <- df1 %>% distinct(bowler)
     a1$bowler = as.character(a1$bowler)
     teamBowlers <- a1[order(a1$bowler),]
-    teamFile = paste(team,"-bowlers.rds",sep="")
+    teamFile = paste(dir,"/",team,"-bowlers.rds",sep="")
     saveRDS(teamBowlers, file=teamFile)
     
     
@@ -138,7 +139,8 @@ getIPLBowlers <- function(dir="."){
   iplBowlers <- a[order(a$bowler),]
   
   # Create all batsmen from all teams for display in UI
-  save(iplBowlers, file="IPLbowlers.RData")
+  bowlersFile=  paste(dir,"/","IPLBowlers.RData",sep="")
+  save(iplBowlers, file=bowlersFile)
   cat("bowlers=",getwd(),"\n")
 }
 
