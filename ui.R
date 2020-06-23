@@ -27,7 +27,8 @@ shinyUI(fluidPage(
     "Data", 
     tabPanel("IPL", navbarPage("GooglyPlusPlus - Indian Premier League (IPL)",
                                  # Batsman tab
-                                 tabPanel("IPL batsman",
+                               tabsetPanel(id = "tabs",
+                                 tabPanel("IPL batsman", value = "IPL",
                                           h4('Analyze IPL batsman performances'),
                                           sidebarPanel(
                                             selectInput('batsmanFunc', 'Select function', batsmanFuncs),
@@ -146,7 +147,7 @@ shinyUI(fluidPage(
                                           p("The data for this Shiny app has been taken from Cricsheet - http://http://cricsheet.org/"),
                                           p("More details about this app and for other posts, see my blog
                     http://gigadom.wordpress.com/")
-                                 ))),
+                                 )))),
     
     ############################# Internation T20 ################################
     tabPanel("Intl. T20(men)",navbarPage("GooglyPlusPlus - Intl. T20 (men)",
@@ -154,8 +155,8 @@ shinyUI(fluidPage(
                                          tabPanel("Intl T20 batsman",
                                                   h4('Analyze Intl T20 batsman performances'),
                                                   sidebarPanel(
-                                                    selectInput('batsmanFunc', 'Select function', batsmanFuncs),
-                                                    selectInput('batsman', 'Select batsman', T20MBatsmen,selectize=FALSE, size=20),
+                                                    selectInput('batsmanFunc1', 'Select function', batsmanFuncs),
+                                                    selectInput('batsman1', 'Select batsman', T20MBatsmen,selectize=FALSE, size=20),
                                                   ),
                                                   mainPanel(
                                                     plotOutput('batsmanPlot'),
@@ -173,8 +174,8 @@ shinyUI(fluidPage(
                                                   h4('Analyze Intl. T20 bowler performances'),
                                                   
                                                   sidebarPanel(
-                                                    selectInput('bowlerFunc', 'Select function', bowlerFuncs),
-                                                    selectInput('bowler', 'Select IPL bowler', T20MBowlers,selectize=FALSE, size=20)
+                                                    selectInput('bowlerFunc1', 'Select function', bowlerFuncs),
+                                                    selectInput('bowler1', 'Select IPL bowler', T20MBowlers,selectize=FALSE, size=20)
                                                     
                                                     
                                                   ),
@@ -192,8 +193,8 @@ shinyUI(fluidPage(
                                          tabPanel("Intl T20 Match",
                                                   h4('Analyze an Intl T20 match'),
                                                   sidebarPanel(
-                                                    selectInput('matchFunc', 'Select match function', matchFuncs),
-                                                    selectInput('match', 'Select IPL match ', T20MMatches,selectize=FALSE, size=15),
+                                                    selectInput('matchFunc1', 'Select match function', matchFuncs),
+                                                    selectInput('match1', 'Select IPL match ', T20MMatches,selectize=FALSE, size=15),
                                                     uiOutput("selectTeam"),
                                                     radioButtons("plotOrTable", label = h4("Plot or table"),
                                                                  choices = c("Plot" = 1, "Table" = 2), 
@@ -214,8 +215,8 @@ shinyUI(fluidPage(
                                          tabPanel("Head to head",
                                                   h4('Head-to-head between 2 Intl. T20 teams'),
                                                   sidebarPanel(
-                                                    selectInput('matches2TeamFunc', 'Select function', matches2TeamsFuncs),
-                                                    selectInput('match2', 'Select matches', T20MMatches2Teams,selectize=FALSE, size=13),                                
+                                                    selectInput('matches2TeamFunc1', 'Select function', matches2TeamsFuncs),
+                                                    selectInput('match21', 'Select matches', T20MMatches2Teams,selectize=FALSE, size=13),                                
                                                     uiOutput("selectTeam2"),
                                                     radioButtons("plotOrTable1", label = h4("Plot or table"),
                                                                  choices = c("Plot" = 1, "Table" = 2), 
@@ -239,8 +240,8 @@ shinyUI(fluidPage(
                                          tabPanel("Overall Performance",
                                                   h4("Analyze Intl T20 team's overall performance"),
                                                   sidebarPanel(
-                                                    selectInput('overallperfFunc', 'Select function', teamOverallPerfFunc),
-                                                    selectInput('teamMatches', 'Select the team', T20MTeamsAll,selectize=FALSE, size=13),
+                                                    selectInput('overallperfFunc1', 'Select function', teamOverallPerfFunc),
+                                                    selectInput('teamMatches1', 'Select the team', T20MTeamsAll,selectize=FALSE, size=13),
                                                     uiOutput("Rank"),
                                                     radioButtons("plotOrTable2", label = h4("Plot or table"),
                                                                  choices = c("Plot" = 1, "Table" = 2), 
