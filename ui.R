@@ -166,8 +166,29 @@ shinyUI(fluidPage(
                                                            tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                                     )
                                                   )
+                                         ),
+                                         # Bowlers tab
+                                         tabPanel("Intl. T20 bowlers",
                                                   
-                                         ))),
+                                                  h4('Analyze Intl. T20 bowler performances'),
+                                                  
+                                                  sidebarPanel(
+                                                    selectInput('bowlerFuncT20M', 'Select function', bowlerFuncs),
+                                                    selectInput('bowlerT20M', 'Select bowler', T20MBowlers,selectize=FALSE, size=20)
+                                                    
+                                                    
+                                                  ),
+                                                  mainPanel(
+                                                    plotOutput('bowlerPlotT20M'),
+                                                    column(7, offset=4,
+                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                           tags$h5((tags$i("Dec 25,2016"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    )
+                                                  )
+                                           )
+                                                  
+                                         )),
     tabPanel("Data Summary", verbatimTextOutput("summary1"))
     ,
     "Plots",

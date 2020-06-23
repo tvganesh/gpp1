@@ -8,25 +8,48 @@
 #
 #########################################################################################################
 # Analyze IPL bowlers
-analyzeBowlers <- function(bowler,func) {
+analyzeBowlers <- function(bowler,func, t20type="IPL") {
   
+  # Return when name is NULL at start
+  if(is.null(bowler))
+    return()
+  cat("bowler=",bowler,"\n")
     # Check and get the team indices of IPL teams in which the bowler has played
     cat("analBow=",getwd())
-    i <- getTeamIndex_bowler(bowler,"./ipl/iplBattingBowlingDetails")
-    cat("analBow1=",getwd())
-    # Get the team names
-    teamNames <- getTeams(i)
-    # Check if file exists in the directory. This check is necessary when moving between matchType
+
+    
+    if(t20type == "IPL"){
+      dir1="./ipl/iplBattingBowlingDetails/"
+      # Check and get the team indices of IPL teams in which the batsman has played
+      i <- getTeamIndex_bowler(bowler, dir1)
+      # Get the team names
+      teamNames <- getTeams(i)
+    }
+    else if (t20type == "T20M"){
+      dir1="./t20/t20BattingBowlingDetails/"
+      i <- getT20MTeamIndex_bowler(bowler, dir1)
+      print(i)
+      # Get the team names
+      teamNames <- getT20MTeams(i)
+      print(teamNames)
+    }
+    
     
     bowlerDF <- NULL
     
     # Create a consolidated Data frame of batsman for all IPL teams played
     for (i in seq_along(teamNames)){
-          df <- getBowlerWicketDetails(team=teamNames[i],name=bowler,dir="./ipl/iplBattingBowlingDetails")
+      tryCatch(df <- getBowlerWicketDetails(team=teamNames[i],name=bowler,dir=dir1),
+              error = function(e) {
+                print("Error!")
+                return
+              }
+          )
+          df <- getBowlerWicketDetails(team=teamNames[i],name=bowler,dir=dir1)
           bowlerDF <- rbind(bowlerDF,df) 
-        
     }
- 
+    
+    print(dim(bowlerDF))
     # Call the necessary function
     if(func == "Mean Economy Rate of bowler"){
         bowlerMeanEconomyRate(bowlerDF,bowler)

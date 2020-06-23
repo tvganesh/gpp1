@@ -120,12 +120,19 @@ shinyServer(function(input, output,session) {
     })   
 
     
-###########################################
+##########################################################################################
 # T20 Men
     
     # Analyze and display batsmen plots
     output$batsmanPlotT20M <- renderPlot({  
-      analyzeBatsmen(input$batsmanT20M,input$batsmanFuncT20M, "T20")
+      analyzeBatsmen(input$batsmanT20M,input$batsmanFuncT20M, "T20M")
+      
+    })
+    
+    
+    # Analyze and display bowler plots
+    output$bowlerPlotT20M <- renderPlot({  
+      analyzeBowlers(input$bowlerT20M,input$bowlerFuncT20M, "T20M")
       
     })
 })
