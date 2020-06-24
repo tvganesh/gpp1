@@ -31,7 +31,7 @@ shinyServer(function(input, output,session) {
     
     # Analyze and display batsmen plots
     output$batsmanPlotIPL <- renderPlot({  
-        analyzeBatsmen(input$batsmanIPL,input$batsmanFuncIPL, 'IPL')
+        analyzeBatsmen(input$batsmanIPL,input$batsmanFuncIPL, "IPL")
         
     })
     
@@ -57,7 +57,7 @@ shinyServer(function(input, output,session) {
     # Output either a table or a plot 
     output$plotOrPrintIPLMatch <-  renderUI({ 
         # Check if output is a dataframe. If so, print
-        if(is.data.frame(scorecard <- printOrPlotMatch(input, output))){
+        if(is.data.frame(scorecard <- printOrPlotMatch(input, output,"IPL"))){
             tableOutput("IPLMatchPrint")
         }
         else{ #Else plot
@@ -133,6 +133,36 @@ shinyServer(function(input, output,session) {
     # Analyze and display bowler plots
     output$bowlerPlotT20M <- renderPlot({  
       analyzeBowlers(input$bowlerT20M,input$bowlerFuncT20M, "T20M")
+      
+    })
+    
+    
+    ######################################## IPL Match  #############################################
+    # Analyze and display IPL Match plot
+    output$T20MMatchPlot <- renderPlot({ 
+      print("t20 plot")
+      printOrPlotMatch(input, output,"T20M")
+      
+    })
+    
+    # Analyze and display IPL Match table
+    output$T20MMatchPrint <- renderTable({ 
+      print("t20 print")
+      a <- printOrPlotMatch(input, output,"T20M")
+      head(a)
+      a 
+      
+    })
+    # Output either a table or a plot 
+    output$plotOrPrintT20MMatch <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch(input, output,"T20M"))){
+        print("Hello&&&&&&&&&&&&&&&")
+        tableOutput("T20MMatchPrint")
+      }
+      else{ #Else plot
+        plotOutput("T20MMatchPlot")
+      }
       
     })
 })

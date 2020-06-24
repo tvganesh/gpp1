@@ -8,21 +8,33 @@
 #
 #########################################################################################################
 #Analyze an IPL match
-analyzeMatches <- function(match,matchFunc,plotOrTable,team,opposition) {
+analyzeMatches <- function(match,matchFunc,plotOrTable,team,opposition,t20type) {
+    cat("Entering analyze match=",match,"team=",team)
 
+    cat("match=",match,"func=",matchFunc,"plotOrtbl=",plotOrTable,"team=",team,"oppn=",opposition,"\n")
     # Check and get the team indices of IPL teams in which the bowler has played
-    IPLmatch <- paste("./ipl/iplMatches/", match,".RData",sep="")
-    cat("analymatch=",getwd())
-    load(IPLmatch)
-    matchDF <- overs
-    
+    if(t20type == "IPL"){
+        IPLmatch <- paste("./ipl/iplMatches/", match,".RData",sep="")
+        cat("analymatch=",getwd())
+        load(IPLmatch)
+        matchDF <- overs
+    } else if (t20type == "T20M"){
+        T20Mmatch <- paste("./t20/t20MenMatches/", match,".RData",sep="")
+        cat("analymatch=",getwd())
+        load(T20Mmatch)
+        matchDF <- overs  
+
+    }
+
+    cat("dim(match=",dim(matchDF),"\n")    
+    print(team)
     if(plotOrTable == 1){
         val=TRUE
     } else {
         val= FALSE
     }
-    print(matchFunc)
-    print(team)
+    cat("func=",matchFunc,"\n")
+    cat("team=",team,"\n")
     # Call necessary function
     if(matchFunc == "Match Batting Scorecard"){
         teamBattingScorecardMatch(matchDF,team)
