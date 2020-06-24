@@ -186,7 +186,30 @@ shinyUI(fluidPage(
                                                            tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                                     )
                                                   )
-                                           )
+                                                  # Analyze IPL matches
+                                                  tabPanel("Intl T20 Match",
+                                                           h4('Analyze an Intl T20 match'),
+                                                           sidebarPanel(
+                                                             selectInput('matchFuncT20M', 'Select match function', matchFuncs),
+                                                             selectInput('matchT20M', 'Select IPL match ', T20MMatches,selectize=FALSE, size=15),
+                                                             uiOutput("selectTeam"),
+                                                             radioButtons("plotOrTable", label = h4("Plot or table"),
+                                                                          choices = c("Plot" = 1, "Table" = 2), 
+                                                                          selected = 1,inline=T)
+                                                             
+                                                           ),
+                                                           mainPanel(
+                                                             uiOutput("plotOrPrintT20MMatch"),
+                                                             column(7, offset=4,
+                                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                             )
+                                                           )
+                                                           
+                                                  )
+                                                  
+                                         ),
                                                   
                                          )),
     tabPanel("Data Summary", verbatimTextOutput("summary1"))
