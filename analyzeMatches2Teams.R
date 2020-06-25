@@ -8,24 +8,26 @@
 #
 #########################################################################################################
 #Analyze all IPL matches between 2 IPL teams
-analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opposition) {
+analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opposition,t20type) {
+    
     
     # Check and get the team indices of IPL teams in which the bowler has played
-    print("Here...........")
-    
+    print("Entering matches 2 analyze..........")
+    cat("match2=",match2,"matchFunc=",matchFunc,"plotTbl=",plotOrTable1,"rep=",repType, 
+        "team=",team,"oppn=",opposition,"type=",t20type,"\n")
     if(t20type == "IPL"){
         IPLmatch <- paste("./ipl/iplMatches2Teams/", match2,".RData",sep="")
-        cat("analymatch=",getwd())
+        cat("IPL2=",getwd(),"\n")
         load(IPLmatch)
         matchesDF <- matches
     } else if (t20type == "T20M"){
-        T20Mmatch <- paste("./t20/t20Matches2Teams/", match,".RData",sep="")
-        cat("analymatch=",getwd())
+        T20Mmatch <- paste("./t20/t20Matches2Teams/", match2,".RData",sep="")
+        cat("t20m2=",getwd(),"\n")
         load(T20Mmatch)
         matchesDF <- matches
         
     }
-
+    cat("dim1=",dim(matchesDF),"\n")
     
     if(plotOrTable1 == 1){
         val1=TRUE
@@ -33,7 +35,7 @@ analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opp
         val1= FALSE
     }
     
-    print(repType)
+    cat("reptype=",repType,"\n")
     if(repType == 1){
         val2="summary"
     } else {
@@ -42,9 +44,10 @@ analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opp
     
     # Call the correct function
     if(matchFunc == "Team Batting Scorecard All Matches"){
-        
+        cat("dim2=",dim(matchesDF),"team=",team,"oppn=",opposition,"\n")
         teamBattingScorecardOppnAllMatches(matchesDF,team, opposition)
     } else if (matchFunc == "Team Batsmen Batting Partnerships All Matches"){
+        cat("dim3=",dim(matchesDF),"team=",team,"oppn=",opposition,"\n")
         if(val1 == TRUE){
             teamBatsmenPartnershipOppnAllMatchesChart(matchesDF,team,opposition,plot=val1)
         } else if(val1 == FALSE){
@@ -69,7 +72,6 @@ analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opp
     } else if (matchFunc == "Win Loss All Matches"){
         plotWinLossBetweenTeams(team,opposition,"./IPLmatches")
     }
-    
     
    
     

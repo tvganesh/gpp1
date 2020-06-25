@@ -19,7 +19,7 @@ printOrPlotMatch2Teams <- function(input,output,t20type="IPL"){
     
     teams2 <- c(p[[1]][1],p[[1]][2])
     
-    cat("team=",teams2,"\n")
+    cat("teams=",teams2,"\n")
  
     
     
@@ -33,7 +33,7 @@ printOrPlotMatch2Teams <- function(input,output,t20type="IPL"){
         otherTeam = setdiff(teams2,input$team2)
         cat("IPL team=",input$team2,"other team=",otherTeam)
     } else if (t20type == "T20M"){
-        output$selectTeamT20M <- renderUI({ 
+        output$selectTeam2T20M <- renderUI({ 
             selectInput('team2T20M', 'Choose team',choices=teams2,selected=input$team2T20M)
         })
         otherTeam = setdiff(teams2,input$team2T20M)
@@ -42,13 +42,13 @@ printOrPlotMatch2Teams <- function(input,output,t20type="IPL"){
 
     if(t20type == "IPL")
         a <- analyzeMatches2Teams(input$match2,input$matches2TeamFunc,input$plotOrTable1,
-                              input$repType,input$team2,otherTeam)
+                              input$repType,input$team2,otherTeam,t20type)
     else if (t20type == "T20M")
-        a <- analyzeMatches2Teams(input$match2T20M,input$matches2T20MTeamFunc,input$plotOrTable1T20M,
-                                  input$repTypeT20M,input$team2T20M,otherTeam)
+        a <- analyzeMatches2Teams(input$match2T20M,input$matches2TeamFuncT20M,input$plotOrTable1T20M,
+                                  input$repTypeT20M,input$team2T20M,otherTeam,t20type)
     
-    
+    print("Output oa anlsy2")
     head(a)    
-  
+    cat('Exiting print2',dim(a))
     a
 }

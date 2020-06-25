@@ -171,21 +171,24 @@ shinyServer(function(input, output,session) {
     
     # Analyze and display T20 Men Matches between 2 teams plot
     output$T20MMatch2TeamsPlot <- renderPlot({ 
+      print("plot")
       printOrPlotMatch2Teams(input, output,"T20M")
       
     })
     
     # Analyze and display IPL Match table
     output$T20MMatch2TeamsPrint <- renderTable({ 
+      print("table")
       a <- printOrPlotMatch2Teams(input, output,"T20M")
       a
       #a
     })
     
     # Output either a table or a plot 
-    output$plotOrPrintT20MLMatch2teams <-  renderUI({ 
+    output$plotOrPrintT20MMatch2teams <-  renderUI({ 
+      print("Server ")
       # Check if output is a dataframe. If so, print
-      if(is.data.frame(scorecard <- printOrPlotMatch2Teams(input, output,"T20"))){
+      if(is.data.frame(scorecard <- printOrPlotMatch2Teams(input, output,"T20M"))){
         tableOutput("T20MMatch2TeamsPrint")
       }
       else{ #Else plot

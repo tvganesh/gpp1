@@ -34,7 +34,7 @@ printOrPlotMatch <- function(input,output,t20type="IPL"){
         selectInput('teamT20M', 'Choose team',choices=teams,selected=input$teamT20M)
       })
       otherTeam = setdiff(teams,input$teamT20M)
-      cat("T20 team=",input$team20M,"other team=",otherTeam)
+      cat("T20 team=",input$teamT20M,"other team=",otherTeam)
     }
     
     print(otherTeam)

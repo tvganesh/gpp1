@@ -214,7 +214,7 @@ shinyUI(fluidPage(
                                                   h4('Head-to-head between 2 T20 (mens) teams'),
                                                   sidebarPanel(
                                                     selectInput('matches2TeamFuncT20M', 'Select function', matches2TeamsFuncs),
-                                                    selectInput('match2T20M', 'Select matches', IPLMatches2Teams,selectize=FALSE, size=13),                                
+                                                    selectInput('match2T20M', 'Select matches', T20MMatches2Teams,selectize=FALSE, size=13),                                
                                                     uiOutput("selectTeam2T20M"),
                                                     radioButtons("plotOrTable1T20M", label = h4("Plot or table"),
                                                                  choices = c("Plot" = 1, "Table" = 2), 
@@ -225,7 +225,7 @@ shinyUI(fluidPage(
                                                     
                                                   ),
                                                   mainPanel(
-                                                    uiOutput("plotOrPrintIPLMatch2teamsT20M"),
+                                                    uiOutput("plotOrPrintT20MMatch2teams"),
                                                     column(7, offset=4,
                                                            tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
                                                            tags$h5((tags$i("Dec 25,2016"))),
