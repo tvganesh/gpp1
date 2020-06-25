@@ -44,13 +44,13 @@ shinyServer(function(input, output,session) {
     ######################################## IPL Match  #############################################
     # Analyze and display IPL Match plot
     output$IPLMatchPlot <- renderPlot({ 
-        printOrPlotMatch(input, output)
+        printOrPlotMatch(input, output,"IPL")
      
     })
     
     # Analyze and display IPL Match table
     output$IPLMatchPrint <- renderTable({ 
-        a <- printOrPlotMatch(input, output)
+        a <- printOrPlotMatch(input, output,"IPL")
         a 
         
     })
@@ -137,7 +137,7 @@ shinyServer(function(input, output,session) {
     })
     
     
-    ######################################## IPL Match  #############################################
+    ######################################## T20 Men's Match  #############################################
     # Analyze and display IPL Match plot
     output$T20MMatchPlot <- renderPlot({ 
       print("t20 plot")
@@ -162,6 +162,34 @@ shinyServer(function(input, output,session) {
       }
       else{ #Else plot
         plotOutput("T20MMatchPlot")
+      }
+      
+    })
+    
+    #################################### T20 Men's Matches between 2 teams ######################
+    # Analyze Head to head confrontation of T20 Mens teams
+    
+    # Analyze and display T20 Men Matches between 2 teams plot
+    output$T20MMatch2TeamsPlot <- renderPlot({ 
+      printOrPlotMatch2Teams(input, output,"T20M")
+      
+    })
+    
+    # Analyze and display IPL Match table
+    output$T20MMatch2TeamsPrint <- renderTable({ 
+      a <- printOrPlotMatch2Teams(input, output,"T20M")
+      a
+      #a
+    })
+    
+    # Output either a table or a plot 
+    output$plotOrPrintT20MLMatch2teams <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch2Teams(input, output,"T20"))){
+        tableOutput("T20MMatch2TeamsPrint")
+      }
+      else{ #Else plot
+        plotOutput("T20MMatch2TeamsPlot")
       }
       
     })

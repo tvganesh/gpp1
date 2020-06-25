@@ -149,7 +149,7 @@ shinyUI(fluidPage(
                     http://gigadom.wordpress.com/")
                                  )))),
     
-    ############################# Internation T20 ################################
+    ############################# International T20 ################################
     tabPanel("Intl. T20(men)",navbarPage("GooglyPlusPlus - Intl. T20 (men)",
                                          # Batsman tab
                                          tabPanel("Intl T20 batsman",
@@ -207,7 +207,33 @@ shinyUI(fluidPage(
                                                            tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
                                                     )
                                                   ) 
-                                            )                                          
+                                            ),
+
+                                         # Analyze 2 T20 Teams men's  matches
+                                         tabPanel("Head to head",
+                                                  h4('Head-to-head between 2 T20 (mens) teams'),
+                                                  sidebarPanel(
+                                                    selectInput('matches2TeamFuncT20M', 'Select function', matches2TeamsFuncs),
+                                                    selectInput('match2T20M', 'Select matches', IPLMatches2Teams,selectize=FALSE, size=13),                                
+                                                    uiOutput("selectTeam2T20M"),
+                                                    radioButtons("plotOrTable1T20M", label = h4("Plot or table"),
+                                                                 choices = c("Plot" = 1, "Table" = 2), 
+                                                                 selected = 1,inline=T),
+                                                    radioButtons("repTypeT20M", label = h4("Report Type"),
+                                                                 choices = c("Summary" = 1, "Detailed" = 2), 
+                                                                 selected = 1,inline=T)
+                                                    
+                                                  ),
+                                                  mainPanel(
+                                                    uiOutput("plotOrPrintIPLMatch2teamsT20M"),
+                                                    column(7, offset=4,
+                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                           tags$h5((tags$i("Dec 25,2016"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    )
+                                                  ) 
+                                                  
+                                         )                                         
                                          
                                                   
                                          )),
