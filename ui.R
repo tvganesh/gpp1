@@ -259,9 +259,28 @@ shinyUI(fluidPage(
                                                   
                                          )
                                          
+                                      )),
+
+    tabPanel("Intl. T20(women)",navbarPage("GooglyPlusPlus - Intl. T20 (women)",
+                                         # Batsman tab
+                                         tabPanel("Intl T20 batsman",
+                                                  h4('Analyze Intl T20 batsman performances'),
+                                                  sidebarPanel(
+                                                    selectInput('batsmanFuncT20W', 'Select function', batsmanFuncs),
+                                                    selectInput('batsmanT20W', 'Select batsman', T20WBatsmen,selectize=FALSE, size=20),
+                                                  ),
+                                                  mainPanel(
+                                                    plotOutput('batsmanPlotT20W'),
+                                                    column(7, offset=4,
+                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                           tags$h5((tags$i("Dec 25,2016"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    )
+                                                  )
+                                         )
                                          
-                                                  
-                                         )),
+                               )),
+                                       
     tabPanel("Data Summary", verbatimTextOutput("summary1"))
     ,
     "Plots",
