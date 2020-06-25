@@ -1,22 +1,23 @@
 library(dplyr)
 
 # Run this function first. This is imporant to create the data sets
-getT20MBatsmen <- function(dir="."){
+getT20WBatsmen <- function(dir="."){
 
   teams <-c("Australia","India","Pakistan","West Indies", 'Sri Lanka',
-                      "England", "Bangladesh","Netherlands","Scotland", "Afghanistan",
-                      "Zimbabwe","Ireland","New Zealand","South Africa","Canada",
-                      "Bermuda","Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
-                      "United Arab Emirates","Namibia","Cayman Islands","Singapore",
-                      "United States of America","Bhutan","Maldives","Botswana","Nigeria",
-                      "Denmark","Germany","Jersey","Norway","Qatar","Malaysia","Vanuatu",
+                      "England", "Bangladesh","Netherlands","Scotland",
+                       "Zimbabwe","Ireland","New Zealand","South Africa","Canada",
+                      "Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
+                      "United Arab Emirates","Namibia","Singapore",
+                      "United States of America","Maldives","Botswana","Nigeria",
+                      "Germany","Malaysia","Vanuatu",
                       "Thailand")
   
   cwd=getwd()
   print("T20batsmen")
-  cat("t20mbats=",cwd)
+  cat("iplbats=",cwd)
   battingDF <- NULL
   for(team in teams){
+    print(team)
     battingDetails <- NULL
     val <- paste(dir,"/",team,"-BattingDetails.RData",sep="")
     print(val)
@@ -28,6 +29,7 @@ getT20MBatsmen <- function(dir="."){
              
              
     )
+    print("here")
     details <- battingDetails
     
     # Save individual team batsmen separately
@@ -46,24 +48,24 @@ getT20MBatsmen <- function(dir="."){
   df <- select(battingDF,batsman,runs,strikeRate)
   a <- df %>% distinct(batsman)
   a$batsman = as.character(a$batsman)
-  t20mBatsmen <- a[order(a$batsman),]
+  t20wBatsmen <- a[order(a$batsman),]
   
   # Create all batsmen from all teams for display in UI
-  batsmenFile=  paste(dir,"/","T20Mbatsmen.RData",sep="")
+  batsmenFile=  paste(dir,"/","T20Wbatsmen.RData",sep="")
   cat("T20Bfile=",batsmenFile)
-  save(t20mBatsmen, file=batsmenFile)
-  cat("t20lba=",getwd())
+  save(t20wBatsmen, file=batsmenFile)
+  cat("iplba=",getwd())
 }
 
-# Get the team indices of T20 Men teams for which the bowler as played
-getT20MTeamIndex <- function(batsman,dir="."){  
+# Get the team indices of T20 womwn's teams for which the bowler as played
+getT20WTeamIndex <- function(batsman,dir="."){  
   teams <-c("Australia","India","Pakistan","West Indies", 'Sri Lanka',
-            "England", "Bangladesh","Netherlands","Scotland", "Afghanistan",
+            "England", "Bangladesh","Netherlands","Scotland",
             "Zimbabwe","Ireland","New Zealand","South Africa","Canada",
-            "Bermuda","Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
-            "United Arab Emirates","Namibia","Cayman Islands","Singapore",
-            "United States of America","Bhutan","Maldives","Botswana","Nigeria",
-            "Denmark","Germany","Jersey","Norway","Qatar","Malaysia","Vanuatu",
+            "Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
+            "United Arab Emirates","Namibia","Singapore",
+            "United States of America","Maldives","Botswana","Nigeria",
+            "Germany","Malaysia","Vanuatu",
             "Thailand")
   
 
@@ -84,21 +86,21 @@ getT20MTeamIndex <- function(batsman,dir="."){
      m <-assign(val,df)
     
   } 
-  
+
   #Load add dataframes
   teamsBatsmen = list(`Australia-batsmen`,`India-batsmen`,`Pakistan-batsmen`,
                       `West Indies-batsmen`,`Sri Lanka-batsmen`,`England-batsmen`,
                       `Bangladesh-batsmen`,`Netherlands-batsmen`,`Scotland-batsmen`,
-                      `Afghanistan-batsmen`,`Zimbabwe-batsmen`,`Ireland-batsmen`,
+                      `Zimbabwe-batsmen`,`Ireland-batsmen`,
                       `New Zealand-batsmen`,`South Africa-batsmen`,
-                      `Canada-batsmen`,`Bermuda-batsmen`,`Kenya-batsmen`,
+                      `Canada-batsmen`,`Kenya-batsmen`,
                       `Hong Kong-batsmen`,`Nepal-batsmen`,`Oman-batsmen`,
                       `Papua New Guinea-batsmen`,`United Arab Emirates-batsmen`,`Namibia-batsmen`,
-                      `Cayman Islands-batsmen`,`Singapore-batsmen`,                     
-                      `United States of America-batsmen`,`Bhutan-batsmen`,`Maldives-batsmen`,
-                      `Botswana-batsmen`,`Nigeria-batsmen`,`Denmark-batsmen`,
-                      `Germany-batsmen`,`Jersey-batsmen`,`Norway-batsmen`,
-                      `Qatar-batsmen`,`Malaysia-batsmen`,                       
+                      `Singapore-batsmen`,                     
+                      `United States of America-batsmen`,`Maldives-batsmen`,
+                      `Botswana-batsmen`,`Nigeria-batsmen`,
+                      `Germany-batsmen`,
+                      ``Malaysia-batsmen`,                       
                       `Vanuatu-batsmen`,`Thailand-batsmen`)                  
                       
   b <- NULL
@@ -114,14 +116,14 @@ getT20MTeamIndex <- function(batsman,dir="."){
 }
 
 
-getT20MBowlers <- function(dir="."){
+getT20WBowlers <- function(dir="."){
   teams <-c("Australia","India","Pakistan","West Indies", 'Sri Lanka',
-            "England", "Bangladesh","Netherlands","Scotland", "Afghanistan",
+            "England", "Bangladesh","Netherlands","Scotland",
             "Zimbabwe","Ireland","New Zealand","South Africa","Canada",
-            "Bermuda","Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
-            "United Arab Emirates","Namibia","Cayman Islands","Singapore",
-            "United States of America","Bhutan","Maldives","Botswana","Nigeria",
-            "Denmark","Germany","Jersey","Norway","Qatar","Malaysia","Vanuatu",
+            "Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
+            "United Arab Emirates","Namibia","Singapore",
+            "United States of America","Maldives","Botswana","Nigeria",
+            "Germany","Malaysia","Vanuatu",
             "Thailand")
   
   cwd=getwd()
@@ -158,24 +160,24 @@ getT20MBowlers <- function(dir="."){
   df <- select(bowlingDF,bowler,economyRate)
   a <- df %>% distinct(bowler)
   a$bowler = as.character(a$bowler)
-  t20mBowlers <- a[order(a$bowler),]
+  t20wBowlers <- a[order(a$bowler),]
   
   # Create all batsmen from all teams for display in UI
-  bowlersFile=  paste(dir,"/","T20Mbowlers.RData",sep="")
-  save(t20mBowlers, file=bowlersFile)
+  bowlersFile=  paste(dir,"/","T20Wbowlers.RData",sep="")
+  save(t20wBowlers, file=bowlersFile)
   cat("bowlers=",getwd(),"\n")
 }
 
-# Get the team indices of T20 Men teams for which the bowler as played
-getT20MTeamIndex_bowler <- function(bowler,dir="."){
+# Get the team indices of T20 Womer teams for which the bowler as played
+getT20WTeamIndex_bowler <- function(bowler,dir="."){
   teams <-c("Australia","India","Pakistan","West Indies", 'Sri Lanka',
-            "England", "Bangladesh","Netherlands","Scotland", "Afghanistan",
+            "England", "Bangladesh","Netherlands","Scotland",
             "Zimbabwe","Ireland","New Zealand","South Africa","Canada",
-            "Bermuda","Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
-            "United Arab Emirates","Namibia","Cayman Islands","Singapore",
-            "United States of America","Bhutan","Maldives","Botswana","Nigeria",
-            "Denmark","Germany","Jersey","Norway","Qatar","Malaysia","Vanuatu",
-            "Thailand")  
+            "Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
+            "United Arab Emirates","Namibia","Singapore",
+            "United States of America","Maldives","Botswana","Nigeria",
+            "Germany","Malaysia","Vanuatu",
+            "Thailand") 
 
   cwd=getwd()
   cat("Entering teamIndex_bowlers",getwd(),"\n")
@@ -196,17 +198,18 @@ getT20MTeamIndex_bowler <- function(bowler,dir="."){
   teamsBowlers = list(`Australia-bowlers`,`India-bowlers`,`Pakistan-bowlers`,
                       `West Indies-bowlers`,`Sri Lanka-bowlers`,`England-bowlers`,
                       `Bangladesh-bowlers`,`Netherlands-bowlers`,`Scotland-bowlers`,
-                      `Afghanistan-bowlers`,`Zimbabwe-bowlers`,`Ireland-bowlers`,
+                      `Zimbabwe-bowlers`,`Ireland-bowlers`,
                       `New Zealand-bowlers`,`South Africa-bowlers`,
-                      `Canada-bowlers`,`Bermuda-bowlers`,`Kenya-bowlers`,
+                      `Canada-bowlers`,`Kenya-bowlers`,
                       `Hong Kong-bowlers`,`Nepal-bowlers`,`Oman-bowlers`,
                       `Papua New Guinea-bowlers`,`United Arab Emirates-bowlers`,`Namibia-bowlers`,
-                      `Cayman Islands-bowlers`,`Singapore-bowlers`,                     
-                      `United States of America-bowlers`,`Bhutan-bowlers`,`Maldives-bowlers`,
-                      `Botswana-bowlers`,`Nigeria-bowlers`,`Denmark-bowlers`,
-                      `Germany-bowlers`,`Jersey-bowlers`,`Norway-bowlers`,
-                      `Qatar-bowlers`,`Malaysia-bowlers`,                       
-                      `Vanuatu-bowlers`,`Thailand-bowlers`)  
+                      `Singapore-bowlers`,                     
+                      `United States of America-bowlers`,`Maldives-bowlers`,
+                      `Botswana-bowlers`,`Nigeria-bowlers`,
+                      `Germany-bowlers`,
+                      ``Malaysia-bowlers`,                       
+                      `Vanuatu-bowlers`,`Thailand-bowlers`)    
+
   b <- NULL
   for (i in 1:length(teamsBowlers)){
     a <- which(teamsBowlers[[i]] == bowler)
@@ -218,14 +221,14 @@ getT20MTeamIndex_bowler <- function(bowler,dir="."){
   b
 }
 
-# Get the list of the IPL team names from the indices passed
-getT20MTeams <- function(x){
+# Get the list of the T20 Women's team names from the indices passed
+getT20WTeams <- function(x){
 
   l <- NULL
   # Get the teams passed in as indexes
   for (i in seq_along(x)){
     
-    l <- c(l, T20MTeamNames[[x[i]]]) 
+    l <- c(l, T20WTeamNames[[x[i]]]) 
     
   }
   l
