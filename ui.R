@@ -233,7 +233,32 @@ shinyUI(fluidPage(
                                                     )
                                                   ) 
                                                   
-                                         )                                         
+                                         ),
+                                         # Analyze T20Mens Team Overall Perf
+                                         tabPanel("Overall Performance",
+                                                  h4("Analyze T20M team's overall performance"),
+                                                  sidebarPanel(
+                                                    selectInput('overallperfFuncT20M', 'Select function', teamOverallPerfFunc),
+                                                    selectInput('teamMatchesT20M', 'Select the team', T20MTeamsAll,selectize=FALSE, size=13),
+                                                    uiOutput("RankT20M"),
+                                                    radioButtons("plotOrTable2T20M", label = h4("Plot or table"),
+                                                                 choices = c("Plot" = 1, "Table" = 2), 
+                                                                 selected = 1,inline=T),
+                                                    radioButtons("repType2T20M", label = h4("Report Type"),
+                                                                 choices = c("Summary" = 1, "Detailed" = 2), 
+                                                                 selected = 1,inline=T)
+                                                  ),
+                                                  mainPanel(
+                                                    uiOutput('printOrPlotT20MTeamPerfoverall'),
+                                                    column(7, offset=4,
+                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                           tags$h5((tags$i("Dec 25,2016"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    )
+                                                  ) 
+                                                  
+                                         )
+                                         
                                          
                                                   
                                          )),

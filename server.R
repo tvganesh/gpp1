@@ -196,4 +196,30 @@ shinyServer(function(input, output,session) {
       }
       
     })
+    
+    
+    
+    ################################ T20 Men's Teams's overall performance ##############################
+    # Analyze overall T20 Mens team performance plots
+    output$T20MTeamPerfOverallPlot <- renderPlot({ 
+      printOrPlotTeamPerfOverall(input, output,"T20M")
+      
+    })
+    
+    # Analyze and display IPL Match table
+    output$T20MTeamPerfOverallPrint <- renderTable({ 
+      a <- printOrPlotTeamPerfOverall(input, output,"T20M")
+      a
+      
+    })
+    # Output either a table or a plot 
+    output$printOrPlotT20MTeamPerfoverall <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotTeamPerfOverall(input, output,"T20M"))){
+        tableOutput("T20MTeamPerfOverallPrint")
+      }
+      else{ #Else plot
+        plotOutput("T20MTeamPerfOverallPlot")
+      }
+    })   
 })

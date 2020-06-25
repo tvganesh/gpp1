@@ -8,12 +8,21 @@
 #
 #########################################################################################################
 # Analyze an IPL team's performance in all matches
-analyzeTeamPerfOverall <- function(matches,matchFunc,team,rankV,plotOrTable2,repType2) {
-    
+analyzeTeamPerfOverall <- function(matches,matchFunc,team,rankV,plotOrTable2,repType2,t20type="IPL") {
+  
+  if(t20type == "IPL"){
     # Check and get the team indices of IPL teams in which the bowler has played
     IPLmatch <- paste("./ipl/iplAllMatchesAllTeams/", matches,".RData",sep="")
     load(IPLmatch)
     matchesDF <- matches
+    print(repType2)
+  } else if (t20type == "T20M"){
+    T20Mmatch <- paste("./t20/t20AllMatchesAllTeams/", matches,".RData",sep="")
+    load(T20Mmatch)
+    matchesDF <- matches
+    print(repType2)
+    
+  }
     
     if(plotOrTable2 == 1){
         val3=TRUE
@@ -21,7 +30,7 @@ analyzeTeamPerfOverall <- function(matches,matchFunc,team,rankV,plotOrTable2,rep
         val3= FALSE
     }
     
-    print(repType2)
+
     
 
     # Call the correct function
