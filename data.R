@@ -83,11 +83,11 @@ a2 <-list.files("./t20/t20WomenAllMatchesAllTeams/")
 T20WTeamsAll <- gsub(".RData","",a2)
 
 # T20 Men Team names
-T20MTeamNames <- list("Australia","India","Pakistan","West Indies", 'Sri Lanka',
-                      "England", "Bangladesh","Netherlands","Scotland", "Afghanistan",
+T20WTeamNames <- list("Australia","India","Pakistan","West Indies", 'Sri Lanka',
+                      "England", "Bangladesh","Netherlands","Scotland",
                       "Zimbabwe","Ireland","New Zealand","South Africa","Canada",
-                      "Bermuda","Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
-                      "United Arab Emirates","Namibia","Cayman Islands","Singapore",
-                      "United States of America","Bhutan","Maldives","Botswana","Nigeria",
-                      "Denmark","Germany","Jersey","Norway","Qatar","Malaysia","Vanuatu",
+                      "Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
+                      "United Arab Emirates","Namibia","Singapore",
+                      "United States of America","Maldives","Botswana","Nigeria",
+                      "Germany","Malaysia","Vanuatu",
                       "Thailand")   

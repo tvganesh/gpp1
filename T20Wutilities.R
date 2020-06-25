@@ -71,16 +71,15 @@ getT20WTeamIndex <- function(batsman,dir="."){
 
   cwd=getwd()
 
-  cat("Entering teamIndex",getwd(),"\n")
+  cat("Entering  Women teamWIndex",getwd(),"\n")
   cat("cwd=",cwd,"\n")
   cat(getwd(),"\n")
-  cat(dir(dir),"\n")
 
   for(team in teams){
      # Set the name of the data frame
      val <- paste(team,"-batsmen",sep="")
      batsmen <- paste(cwd,'/',dir,"/",team,"-batsmen.rds",sep="")
-     cat("tibat=",batsmen,"\n")
+     cat("tiwbat=",batsmen,"\n")
      df <-readRDS(batsmen)
      #Assign a name to the dataframe
      m <-assign(val,df)
@@ -100,7 +99,7 @@ getT20WTeamIndex <- function(batsman,dir="."){
                       `United States of America-batsmen`,`Maldives-batsmen`,
                       `Botswana-batsmen`,`Nigeria-batsmen`,
                       `Germany-batsmen`,
-                      ``Malaysia-batsmen`,                       
+                      `Malaysia-batsmen`,                       
                       `Vanuatu-batsmen`,`Thailand-batsmen`)                  
                       
   b <- NULL
@@ -128,7 +127,7 @@ getT20WBowlers <- function(dir="."){
   
   cwd=getwd()
   cat("bowlers=",cwd,"\n")
-  print(dir)
+
   bowlingDF <- NULL
   for(team in teams){
     bowlingDetails <- NULL
@@ -207,7 +206,7 @@ getT20WTeamIndex_bowler <- function(bowler,dir="."){
                       `United States of America-bowlers`,`Maldives-bowlers`,
                       `Botswana-bowlers`,`Nigeria-bowlers`,
                       `Germany-bowlers`,
-                      ``Malaysia-bowlers`,                       
+                      `Malaysia-bowlers`,                       
                       `Vanuatu-bowlers`,`Thailand-bowlers`)    
 
   b <- NULL

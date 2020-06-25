@@ -19,6 +19,7 @@ analyzeBatsmen <- function(batsman,func, t20type="IPL") {
     print(batsman)
     
     if(t20type == "IPL"){
+        print("ipl")
         dir1="./ipl/iplBattingBowlingDetails/"
         # Check and get the team indices of IPL teams in which the batsman has played
         i <- getTeamIndex(batsman, dir1)
@@ -26,13 +27,19 @@ analyzeBatsmen <- function(batsman,func, t20type="IPL") {
         teamNames <- getTeams(i)
     }
     else if (t20type == "T20M"){
+        print("men")
         dir1="./t20/t20BattingBowlingDetails/"
         i <- getT20MTeamIndex(batsman, dir1)
         # Get the team names
         teamNames <- getT20MTeams(i)
-    }
+    } else if (t20type == "T20W"){
+        print("Women")
+        dir1="./t20/t20WomenBattingBowlingDetails/"
+        i <- getT20WTeamIndex(batsman, dir1)
+        # Get the team names
+        teamNames <- getT20WTeams(i)
     
-
+    }
     
 
     cat("i=",i,"\n")

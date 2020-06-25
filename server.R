@@ -19,6 +19,7 @@ library(rpart.plot)
 source("definitions.R")
 source("IPLutilities.R")
 source("T20Mutilities.R")
+source("T20Wutilities.R")
 source("analyzeBatsmen.R")
 source("analyzeBowlers.R")
 source("analyzeMatches.R")
@@ -222,4 +223,19 @@ shinyServer(function(input, output,session) {
         plotOutput("T20MTeamPerfOverallPlot")
       }
     })   
+    
+    ##########################################################################################
+    # T20 Women
+    
+    # Analyze and display batsmen plots
+    output$batsmanPlotT20W <- renderPlot({  
+      analyzeBatsmen(input$batsmanT20W,input$batsmanFuncT20W, "T20W")
+      
+    })   
+    
+    
 })
+
+
+
+

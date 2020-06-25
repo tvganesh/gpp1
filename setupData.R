@@ -12,3 +12,5 @@ getT20MBowlers("./t20/t20BattingBowlingDetails")
 source("T20Wutilities.R")
 getT20WBatsmen("./t20/t20WomenBattingBowlingDetails")
 getT20WBowlers("./t20/t20WomenBattingBowlingDetails")
+
+source("T20Wutilities1.R")

@@ -60,10 +60,10 @@ getTeamIndex <- function(batsman,dir="."){
 
   cwd=getwd()
 
-  cat("Entering teamIndex",getwd(),"\n")
+  cat("Entering IPL teamIndex",getwd(),"\n")
   cat("cwd=",cwd,"\n")
   cat(getwd(),"\n")
-  cat(dir(dir),"\n")
+
 
   for(team in teams){
      # Set the name of the data frame
