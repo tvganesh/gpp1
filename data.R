@@ -9,7 +9,7 @@
 #########################################################################################################
 load("./ipl/iplBattingBowlingDetails/IPLbatsmen.RData")
 IPLBatsmen <-iplBatsmen
-cat("lengthbatsm=",length(IPLBatsmen),"\n")
+cat("lengthbatsIPL=",length(IPLBatsmen),"\n")
 
 load("./ipl/iplBattingBowlingDetails/IPLbowlers.RData")
 IPLBowlers <-iplBowlers
@@ -65,9 +65,10 @@ T20MTeamNames <- list("Australia","India","Pakistan","West Indies", 'Sri Lanka',
 ############################################
 #T20 Women
 
+
 load("./t20/t20WomenBattingBowlingDetails/T20Wbatsmen.RData")
 T20WBatsmen <-t20wBatsmen
-cat("lengthbatsm=",length(T20MBatsmen),"\n")
+cat("lengthWbatsm=",length(T20WBatsmen),"\n")
 
 load("./t20/t20WomenBattingBowlingDetails/T20Wbowlers.RData")
 T20WBowlers <-t20wBowlers
@@ -82,7 +83,7 @@ T20WMatches2Teams <- gsub(".RData","",a1)
 a2 <-list.files("./t20/t20WomenAllMatchesAllTeams/")
 T20WTeamsAll <- gsub(".RData","",a2)
 
-# T20 Men Team names
+# T20 Women Team names
 T20WTeamNames <- list("Australia","India","Pakistan","West Indies", 'Sri Lanka',
                       "England", "Bangladesh","Netherlands","Scotland",
                       "Zimbabwe","Ireland","New Zealand","South Africa","Canada",
@@ -91,3 +92,55 @@ T20WTeamNames <- list("Australia","India","Pakistan","West Indies", 'Sri Lanka',
                       "United States of America","Maldives","Botswana","Nigeria",
                       "Germany","Malaysia","Vanuatu",
                       "Thailand")   
+
+
+
+###############################################################
+## BBL
+load("./bbl/bblBattingBowlingDetails/BBLbatsmen.RData")
+BBLBatsmen <-bblBatsmen
+cat("lengthbatsBBL=",length(BBLBatsmen),"\n")
+
+load("./bbl/bblBattingBowlingDetails/BBLbowlers.RData")
+BBLBowlers <-bblBowlers
+
+a <-list.files("./bbl/bblMatches/")
+BBLMatches <- gsub(".RData","",a)
+cat("length BBL match=",length(BBLMatches),"\n")
+
+a1 <-list.files("./bbl/bblMatches2Teams/")
+BBLMatches2Teams <- gsub(".RData","",a1)
+
+a2 <-list.files("./bbl/bblAllMatchesAllTeams/")
+BBLTeamsAll <- gsub(".RData","",a2)
+
+# BBL Team names
+BBLTeamNames <- list(`Adelaide Strikers-bowlers`,`Brisbane Heat-bowlers`,`Hobart Hurricanes-bowlers`,
+                     `Melbourne Renegades-bowlers`,`Melbourne Stars-bowlers`,`Perth Scorchers-bowlers`,
+                     `Sydney Sixers-bowlers`,`Sydney Thunder-bowlers`)  
+
+
+##############################################
+#NTB
+load("./ntb/ntbBattingBowlingDetails/NTBbatsmen.RData")
+NTBBatsmen <-ntbBatsmen
+cat("lengthbatsNTB=",length(NTBBatsmen),"\n")
+
+load("./ntb/ntbBattingBowlingDetails/NTBbowlers.RData")
+NTBBowlers <-ntbBowlers
+
+a <-list.files("./ntb/ntbMatches/")
+NTBMatches <- gsub(".RData","",a)
+cat("length NTB match=",length(NTBMatches),"\n")
+
+a1 <-list.files("./ntb/ntbMatches2Teams/")
+NTBMatches2Teams <- gsub(".RData","",a1)
+
+a2 <-list.files("./ntb/ntbAllMatchesAllTeams/")
+NTBTeamsAll <- gsub(".RData","",a2)
+
+# NTB Team names
+NTBTeamNames <- list(`Adelaide Strikers-bowlers`,`Brisbane Heat-bowlers`,`Hobart Hurricanes-bowlers`,
+                     `Melbourne Renegades-bowlers`,`Melbourne Stars-bowlers`,`Perth Scorchers-bowlers`,
+                     `Sydney Sixers-bowlers`,`Sydney Thunder-bowlers`) 
+
