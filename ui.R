@@ -355,10 +355,52 @@ shinyUI(fluidPage(
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
                                                     tags$h5((tags$i("Dec 25,2016"))),
                                                     tags$h6("Data source Cricsheet: http://cricsheet.org/")
-                                             )
+                                              )
                                            )
                                   )
                                   
+                        )),
+    
+    ############################# ODI Men ################################
+    tabPanel("ODI Men",navbarPage("GooglyPlusPlus - ODI Men",
+                                   # Batsman tab
+                                   tabPanel("ODI Men batsman",
+                                            h4('Analyze ODI batsman performances'),
+                                            sidebarPanel(
+                                              selectInput('batsmanFuncODIM', 'Select function', batsmanFuncs),
+                                              selectInput('batsmanODIM', 'Select batsman', ODIMBatsmen,selectize=FALSE, size=20),
+                                            ),
+                                            mainPanel(
+                                              plotOutput('batsmanPlotODIM'),
+                                              column(7, offset=4,
+                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                     tags$h5((tags$i("Dec 25,2016"))),
+                                                     tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                              )
+                                            )
+                                   )
+                                   
+    )),
+    
+    ############################# ODI Women ################################
+    tabPanel("ODI Women",navbarPage("GooglyPlusPlus - ODI Women",
+                              # Batsman tab
+                              tabPanel("ODI Women batsman",
+                                       h4('Analyze ODI batsman performances'),
+                                       sidebarPanel(
+                                         selectInput('batsmanFuncODIW', 'Select function', batsmanFuncs),
+                                         selectInput('batsmanODIW', 'Select batsman', ODIWBatsmen,selectize=FALSE, size=20),
+                                       ),
+                                       mainPanel(
+                                         plotOutput('batsmanPlotODIW'),
+                                         column(7, offset=4,
+                                                tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                tags$h5((tags$i("Dec 25,2016"))),
+                                                tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                         )
+                                       )
+                              )
+                              
     )),
                                        
     tabPanel("Data Summary", verbatimTextOutput("summary1"))

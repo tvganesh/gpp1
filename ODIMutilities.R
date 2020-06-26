@@ -64,7 +64,7 @@ getODIMTeamIndex <- function(batsman,dir="."){
   
 
   cwd=getwd()
-
+  print("wrong!!!!!!!!!!!!!")
   cat("Entering teamIndex Men",getwd(),"\n")
   cat("cwd=",cwd,"\n")
   cat(getwd(),"\n")

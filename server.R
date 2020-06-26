@@ -25,6 +25,7 @@ source("NTButilities.R")
 source("PSLutilities.R")
 source("WBButilities.R")
 source("ODIMutilities.R")
+source("ODIWutilities.R")
 source("analyzeBatsmen.R")
 source("analyzeBowlers.R")
 source("analyzeMatches.R")
@@ -272,6 +273,24 @@ shinyServer(function(input, output,session) {
     # Analyze and display batsmen plots
     output$batsmanPlotWBB <- renderPlot({  
       analyzeBatsmen(input$batsmanWBB,input$batsmanFuncWBB, "WBB")
+      
+    }) 
+    
+    ##########################################################################################
+    # ODI Men
+    
+    # Analyze and display batsmen plots
+    output$batsmanPlotODIM <- renderPlot({  
+      analyzeBatsmen(input$batsmanODIM,input$batsmanFuncODIM, "ODIM")
+      
+    }) 
+    
+    ##########################################################################################
+    # ODI Women
+    
+    # Analyze and display batsmen plots
+    output$batsmanPlotODIW <- renderPlot({  
+      analyzeBatsmen(input$batsmanODIW,input$batsmanFuncODIW, "ODIW")
       
     }) 
     

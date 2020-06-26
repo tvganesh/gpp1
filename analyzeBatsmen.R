@@ -67,6 +67,20 @@ analyzeBatsmen <- function(batsman,func, t20type="IPL") {
         # Get the team names
         teamNames <- getWBBTeams(i)
         
+    } else if (t20type == "ODIM"){
+        print("ODIM")
+        dir1="./odi/odiBattingBowlingDetails/"
+        i <- getODIMTeamIndex(batsman, dir1)
+        # Get the team names
+        teamNames <- getODIMTeams(i)
+        
+    } else if (t20type == "ODIW"){
+        print("ODIW")
+        dir1="./odi/odiWomenBattingBowlingDetails/"
+        i <- getODIWTeamIndex(batsman, dir1)
+        # Get the team names
+        teamNames <- getODIWTeams(i)
+        
     }
 
     cat("i=",i,"\n")

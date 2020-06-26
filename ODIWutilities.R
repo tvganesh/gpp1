@@ -56,10 +56,10 @@ getODIWTeamIndex <- function(batsman,dir="."){
             "England", "Bangladesh",
             "Ireland","New Zealand","South Africa")
   
-
+  print("Women index")
   cwd=getwd()
 
-  cat("Entering teamIndex Men",getwd(),"\n")
+  cat("Entering teamIndex Women",getwd(),"\n")
   cat("cwd=",cwd,"\n")
   cat(getwd(),"\n")
 
@@ -80,7 +80,7 @@ getODIWTeamIndex <- function(batsman,dir="."){
   teamsBatsmen = list(`Australia-batsmen`,`India-batsmen`,`Pakistan-batsmen`,
                       `West Indies-batsmen`,`Sri Lanka-batsmen`,`England-batsmen`,
                       `Bangladesh-batsmen`,`Ireland-batsmen`,
-                      `New Zealand-batsmen`,`South Africa-batsmen`,
+                      `New Zealand-batsmen`,`South Africa-batsmen`
                       )                 
                       
   b <- NULL
@@ -171,7 +171,7 @@ getODIWTeamIndex_bowler <- function(bowler,dir="."){
   teamsBowlers = list(`Australia-bowlers`,`India-bowlers`,`Pakistan-bowlers`,
                       `West Indies-bowlers`,`Sri Lanka-bowlers`,`England-bowlers`,
                       `Bangladesh-bowlers`,`Ireland-bowlers`,
-                      `New Zealand-bowlers`,`South Africa-bowlers`,
+                      `New Zealand-bowlers`,`South Africa-bowlers`
                       )  
   b <- NULL
   for (i in 1:length(teamsBowlers)){
