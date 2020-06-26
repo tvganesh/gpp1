@@ -248,6 +248,15 @@ shinyServer(function(input, output,session) {
       
     }) 
     
+    ##########################################################################################
+    # Natwest T20
+    
+    # Analyze and display batsmen plots
+    output$batsmanPlotNTB <- renderPlot({  
+      analyzeBatsmen(input$batsmanNTB,input$batsmanFuncNTB, "NTB")
+      
+    }) 
+    
 })
 
 

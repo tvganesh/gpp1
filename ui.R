@@ -149,7 +149,7 @@ shinyUI(fluidPage(
                     http://gigadom.wordpress.com/")
                                  )))),
     
-    ############################# International T20 ################################
+    ############################# International T20 (Men) ################################
     tabPanel("Intl. T20(men)",navbarPage("GooglyPlusPlus - Intl. T20 (men)",
                                          # Batsman tab
                                          tabPanel("Intl T20 batsman",
@@ -260,7 +260,7 @@ shinyUI(fluidPage(
                                          )
                                          
                                       )),
-
+    ############################# International T20 (Women) ################################
     tabPanel("Intl. T20(women)",navbarPage("GooglyPlusPlus - Intl. T20 (women)",
                                          # Batsman tab
                                          tabPanel("Intl T20 batsman",
@@ -280,6 +280,7 @@ shinyUI(fluidPage(
                                          )
                                          
                                )),
+    #############################Big Bash League T20 ################################
     tabPanel("BBL T20",navbarPage("GooglyPlusPlus - Big Bash League T20",
                                            # Batsman tab
                                            tabPanel("BBL T20 batsman",
@@ -299,6 +300,26 @@ shinyUI(fluidPage(
                                            )
                                            
                   )),
+    ############################# Natwest T20 ################################
+    tabPanel("NTB T20",navbarPage("GooglyPlusPlus - Natwest T20",
+                                  # Batsman tab
+                                  tabPanel("NTB T20 batsman",
+                                           h4('Analyze NTB T20 batsman performances'),
+                                           sidebarPanel(
+                                             selectInput('batsmanFuncNTB', 'Select function', batsmanFuncs),
+                                             selectInput('batsmanNTB', 'Select batsman', NTBBatsmen,selectize=FALSE, size=20),
+                                           ),
+                                           mainPanel(
+                                             plotOutput('batsmanPlotNTB'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           )
+                                  )
+                                  
+    )),
                                        
     tabPanel("Data Summary", verbatimTextOutput("summary1"))
     ,

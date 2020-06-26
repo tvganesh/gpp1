@@ -83,12 +83,12 @@ getNTBTeamIndex <- function(batsman,dir="."){
   
   #Load add dataframes
   teamsBatsmen = list(`Birmingham Bears-batsmen`,`Derbyshire-batsmen`,`Durham-batsmen`,
-                      `Essex-batsmen`,`Glamorgans-batsmen`,`Gloucestershire-batsmen`,
+                      `Essex-batsmen`,`Glamorgan-batsmen`,`Gloucestershire-batsmen`,
                       `Hampshire-batsmen`,`Kent-batsmen`,
                       `Lancashire-batsmen`,`Leicestershire-batsmen`,`Middlesex-batsmen`,
                       `Northamptonshire-batsmen`,`Nottinghamshire-batsmen`,`Somerset-batsmen`,
                       `Surrey-batsmen`,`Sussex-batsmen`,`Warwickshire-batsmen`,
-                      `Worcestershire-batsmen`,`Yorkshire-batsmen`,
+                      `Worcestershire-batsmen`,`Yorkshire-batsmen`
                       )                  
                       
   b <- NULL
@@ -180,13 +180,13 @@ getNTBTeamIndex_bowler <- function(bowler,dir="."){
   cat("bowlerindex=",getwd(),"\n")
   #Load add dataframe) 
   teamsBowlers = list(`Birmingham Bears-bowlers`,`Derbyshire-bowlers`,`Durham-bowlers`,
-                      `Essex-bowlers`,`Glamorgans-bowlers`,`Gloucestershire-bowlers`,
+                      `Essex-bowlers`,`Glamorgan-bowlers`,`Gloucestershire-bowlers`,
                       `Hampshire-bowlers`,`Kent-bowlers`,
                       `Lancashire-bowlers`,`Leicestershire-bowlers`,`Middlesex-bowlers`,
                       `Northamptonshire-bowlers`,`Nottinghamshire-bowlers`,`Somerset-bowlers`,
                       `Surrey-bowlers`,`Sussex-bowlers`,`Warwickshire-bowlers`,
-                      `Worcestershire-bowlers`,`Yorkshire-bowlers`,
-  )     
+                      `Worcestershire-bowlers`,`Yorkshire-bowlers`
+                     )     
   b <- NULL
   for (i in 1:length(teamsBowlers)){
     a <- which(teamsBowlers[[i]] == bowler)
