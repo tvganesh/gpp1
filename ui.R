@@ -319,6 +319,46 @@ shinyUI(fluidPage(
                                            )
                                   )
                                   
+                       )),
+    ############################# PSL T20 ################################
+    tabPanel("PSL T20",navbarPage("GooglyPlusPlus - Pakistan Super League",
+                                  # Batsman tab
+                                  tabPanel("PSL T20 batsman",
+                                           h4('Analyze PSL T20 batsman performances'),
+                                           sidebarPanel(
+                                             selectInput('batsmanFuncPSL', 'Select function', batsmanFuncs),
+                                             selectInput('batsmanPSL', 'Select batsman', PSLBatsmen,selectize=FALSE, size=20),
+                                           ),
+                                           mainPanel(
+                                             plotOutput('batsmanPlotPSL'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           )
+                                  )
+                                  
+                      )),
+    ############################# WBBL T20 ################################
+    tabPanel("WBBL T20",navbarPage("GooglyPlusPlus - Women's BBL",
+                                  # Batsman tab
+                                  tabPanel("WBB T20 batsman",
+                                           h4('Analyze WBBL T20 batsman performances'),
+                                           sidebarPanel(
+                                             selectInput('batsmanFuncWBB', 'Select function', batsmanFuncs),
+                                             selectInput('batsmanWBB', 'Select batsman', WBBBatsmen,selectize=FALSE, size=20),
+                                           ),
+                                           mainPanel(
+                                             plotOutput('batsmanPlotWBB'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           )
+                                  )
+                                  
     )),
                                        
     tabPanel("Data Summary", verbatimTextOutput("summary1"))

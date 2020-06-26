@@ -255,6 +255,24 @@ shinyServer(function(input, output,session) {
     output$batsmanPlotNTB <- renderPlot({  
       analyzeBatsmen(input$batsmanNTB,input$batsmanFuncNTB, "NTB")
       
+    })
+    
+    ##########################################################################################
+    # PSL T20
+    
+    # Analyze and display batsmen plots
+    output$batsmanPlotPSL <- renderPlot({  
+      analyzeBatsmen(input$batsmanPSL,input$batsmanFuncPSL, "PSL")
+      
+    }) 
+    
+    ##########################################################################################
+    # WBBL T20
+    
+    # Analyze and display batsmen plots
+    output$batsmanPlotWBB <- renderPlot({  
+      analyzeBatsmen(input$batsmanWBB,input$batsmanFuncWBB, "WBB")
+      
     }) 
     
 })
