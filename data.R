@@ -117,7 +117,7 @@ BBLTeamsAll <- gsub(".RData","",a2)
 # BBL Team names
 BBLTeamNames <- list("Adelaide Strikers", "Brisbane Heat", "Hobart Hurricanes",
                      "Melbourne Renegades", "Melbourne Stars", "Perth Scorchers", "Sydney Sixers",
-                     "Sydney Thunder"`)  
+                     "Sydney Thunder")  
 
 
 ##############################################
@@ -170,4 +170,86 @@ PSLTeamsAll <- gsub(".RData","",a2)
 # PSL Team names
 PSLTeamNames <- list("Islamabad United","Karachi Kings", "Lahore Qalandars", "Multan Sultans",
                      "Peshawar Zalmi", "Quetta Gladiators") 
+
+
+############################################################
+#WBB
+## WBB
+load("./wbb/wbbBattingBowlingDetails/WBBbatsmen.RData")
+WBBBatsmen <-wbbBatsmen
+cat("lengthbatsWBB=",length(WBBBatsmen),"\n")
+
+load("./wbb/wbbBattingBowlingDetails/WBBbowlers.RData")
+WBBBowlers <-wbbBowlers
+
+a <-list.files("./wbb/wbbMatches/")
+WBBMatches <- gsub(".RData","",a)
+cat("length WBB match=",length(WBBMatches),"\n")
+
+a1 <-list.files("./wbb/wbbMatches2Teams/")
+WBBMatches2Teams <- gsub(".RData","",a1)
+
+a2 <-list.files("./wbb/wbbAllMatchesAllTeams/")
+WBBTeamsAll <- gsub(".RData","",a2)
+
+# WBB Team names
+WBBTeamNames <- list("Adelaide Strikers", "Brisbane Heat", "Hobart Hurricanes",
+                     "Melbourne Renegades", "Melbourne Stars", "Perth Scorchers", "Sydney Sixers",
+                     "Sydney Thunder")  
+
+
+############################################
+#ODI Men
+
+load("./odi/odiBattingBowlingDetails/ODIMbatsmen.RData")
+ODIMBatsmen <-odimBatsmen
+cat("lengthbatsm=",length(ODIMBatsmen),"\n")
+
+load("./odi/odiBattingBowlingDetails/ODIMbowlers.RData")
+ODIMBowlers <-odimBowlers
+
+a <-list.files("./odi/odiMenMatches/")
+ODIMMatches <- gsub(".RData","",a)
+cat("length=",length(ODIMMatches),"\n")
+
+a1 <-list.files("./odi/odiMatches2Teams/")
+ODIMMatches2Teams <- gsub(".RData","",a1)
+
+a2 <-list.files("./odi/odiAllMatchesAllTeams/")
+ODIMTeamsAll <- gsub(".RData","",a2)
+
+# odi Men Team names
+ODIMTeamNames <- list("Australia","India","Pakistan","West Indies", 'Sri Lanka',
+                      "England", "Bangladesh","Netherlands","Scotland", "Afghanistan",
+                      "Zimbabwe","Ireland","New Zealand","South Africa","Canada",
+                      "Bermuda","Kenya","Hong Kong","Nepal","Oman","Papua New Guinea",
+                      "United Arab Emirates","Namibia",
+                      "United States of America") 
+
+############################################
+#ODI Women
+
+load("./odi/odiWomenBattingBowlingDetails/ODIWbatsmen.RData")
+ODIWBatsmen <-odiwBatsmen
+cat("lengthbatsm=",length(ODIWBatsmen),"\n")
+
+load("./odi/odiBattingBowlingDetails/ODIWbowlers.RData")
+ODIWBowlers <-odiwBowlers
+
+a <-list.files("./odi/odiWomenMatches/")
+ODIWMatches <- gsub(".RData","",a)
+cat("length=",length(ODIWMatches),"\n")
+
+a1 <-list.files("./odi/odiWomenMatches2Teams/")
+ODIWMatches2Teams <- gsub(".RData","",a1)
+
+a2 <-list.files("./odi/odiWomenAllMatchesAllTeams/")
+ODIWTeamsAll <- gsub(".RData","",a2)
+
+# odi Men Team names
+ODIWTeamNames <- list("Australia","India","Pakistan","West Indies", 'Sri Lanka',
+                      "England", "Bangladesh",
+                      "Ireland","New Zealand","South Africa")) 
+
+
 

@@ -24,3 +24,15 @@ getNTBBowlers("./ntb/ntbBattingBowlingDetails")
 source("PSLutilities.R")
 getPSLBatsmen("./psl/pslBattingBowlingDetails")
 getPSLBowlers("./psl/pslBattingBowlingDetails")
+
+source("WBButilities.R")
+getWBBBatsmen("./wbb/wbbBattingBowlingDetails")
+getWBBBowlers("./wbb/wbbBattingBowlingDetails")
+
+source("ODIMutilities.R")
+getODIMBatsmen("./odi/odiBattingBowlingDetails")
+getODIMBowlers("./odi/odiBattingBowlingDetails")
+
+source("ODIWutilities.R")
+getODIWBatsmen("./odi/odiWomenBattingBowlingDetails")
+getODIWBowlers("./odi/odiWomenBattingBowlingDetails")
