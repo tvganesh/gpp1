@@ -280,6 +280,25 @@ shinyUI(fluidPage(
                                          )
                                          
                                )),
+    tabPanel("BBL T20",navbarPage("GooglyPlusPlus - Big Bash League T20",
+                                           # Batsman tab
+                                           tabPanel("BBL T20 batsman",
+                                                    h4('Analyze BBL T20 batsman performances'),
+                                                    sidebarPanel(
+                                                      selectInput('batsmanFuncBBL', 'Select function', batsmanFuncs),
+                                                      selectInput('batsmanBBL', 'Select batsman', BBLBatsmen,selectize=FALSE, size=20),
+                                                    ),
+                                                    mainPanel(
+                                                      plotOutput('batsmanPlotBBL'),
+                                                      column(7, offset=4,
+                                                             tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                             tags$h5((tags$i("Dec 25,2016"))),
+                                                             tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                      )
+                                                    )
+                                           )
+                                           
+                  )),
                                        
     tabPanel("Data Summary", verbatimTextOutput("summary1"))
     ,

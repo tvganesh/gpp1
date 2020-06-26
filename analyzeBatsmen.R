@@ -39,8 +39,14 @@ analyzeBatsmen <- function(batsman,func, t20type="IPL") {
         # Get the team names
         teamNames <- getT20WTeams(i)
     
+    } else if (t20type == "BBL"){
+        print("BBL")
+        dir1="./bbl/bblBattingBowlingDetails/"
+        i <- getBBLTeamIndex(batsman, dir1)
+        # Get the team names
+        teamNames <- getBBLTeams(i)
+        
     }
-    
 
     cat("i=",i,"\n")
     cat("analyze=",getwd())

@@ -239,6 +239,15 @@ shinyServer(function(input, output,session) {
     })   
     
     
+    ##########################################################################################
+    # Big Bash League
+    
+    # Analyze and display batsmen plots
+    output$batsmanPlotBBL <- renderPlot({  
+      analyzeBatsmen(input$batsmanBBL,input$batsmanFuncBBL, "BBL")
+      
+    }) 
+    
 })
 
 

@@ -233,7 +233,7 @@ load("./odi/odiWomenBattingBowlingDetails/ODIWbatsmen.RData")
 ODIWBatsmen <-odiwBatsmen
 cat("lengthbatsm=",length(ODIWBatsmen),"\n")
 
-load("./odi/odiBattingBowlingDetails/ODIWbowlers.RData")
+load("./odi/odiWomenBattingBowlingDetails/ODIWbowlers.RData")
 ODIWBowlers <-odiwBowlers
 
 a <-list.files("./odi/odiWomenMatches/")
@@ -249,7 +249,7 @@ ODIWTeamsAll <- gsub(".RData","",a2)
 # odi Men Team names
 ODIWTeamNames <- list("Australia","India","Pakistan","West Indies", 'Sri Lanka',
                       "England", "Bangladesh",
-                      "Ireland","New Zealand","South Africa")) 
+                      "Ireland","New Zealand","South Africa")
 
 
 
