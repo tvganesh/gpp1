@@ -16,3 +16,11 @@ getT20WBowlers("./t20/t20WomenBattingBowlingDetails")
 source("BBLutilities.R")
 getBBLBatsmen("./bbl/bblBattingBowlingDetails")
 getBBLBowlers("./bbl/bblBattingBowlingDetails")
+
+source("NTButilities.R")
+getNTBBatsmen("./ntb/ntbBattingBowlingDetails")
+getNTBBowlers("./ntb/ntbBattingBowlingDetails")
+
+source("PSLutilities.R")
+getPSLBatsmen("./psl/pslBattingBowlingDetails")
+getPSLBowlers("./psl/pslBattingBowlingDetails")

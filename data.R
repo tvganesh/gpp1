@@ -115,9 +115,9 @@ a2 <-list.files("./bbl/bblAllMatchesAllTeams/")
 BBLTeamsAll <- gsub(".RData","",a2)
 
 # BBL Team names
-BBLTeamNames <- list(`Adelaide Strikers-bowlers`,`Brisbane Heat-bowlers`,`Hobart Hurricanes-bowlers`,
-                     `Melbourne Renegades-bowlers`,`Melbourne Stars-bowlers`,`Perth Scorchers-bowlers`,
-                     `Sydney Sixers-bowlers`,`Sydney Thunder-bowlers`)  
+BBLTeamNames <- list("Adelaide Strikers", "Brisbane Heat", "Hobart Hurricanes",
+                     "Melbourne Renegades", "Melbourne Stars", "Perth Scorchers", "Sydney Sixers",
+                     "Sydney Thunder"`)  
 
 
 ##############################################
@@ -140,7 +140,34 @@ a2 <-list.files("./ntb/ntbAllMatchesAllTeams/")
 NTBTeamsAll <- gsub(".RData","",a2)
 
 # NTB Team names
-NTBTeamNames <- list(`Adelaide Strikers-bowlers`,`Brisbane Heat-bowlers`,`Hobart Hurricanes-bowlers`,
-                     `Melbourne Renegades-bowlers`,`Melbourne Stars-bowlers`,`Perth Scorchers-bowlers`,
-                     `Sydney Sixers-bowlers`,`Sydney Thunder-bowlers`) 
+NTBTeamNames <- list("Birmingham Bears","Derbyshire", "Durham", "Essex", "Glamorgan",
+                     "Gloucestershire", "Hampshire", "Kent","Lancashire",
+                     "Leicestershire", "Middlesex","Northamptonshire",
+                     "Nottinghamshire","Somerset","Surrey","Sussex","Warwickshire",
+                     "Worcestershire","Yorkshire") 
+
+
+#########################################################
+#PSL
+
+load("./psl/pslBattingBowlingDetails/PSLbatsmen.RData")
+PSLBatsmen <-pslBatsmen
+cat("lengthbatsPSL=",length(PSLBatsmen),"\n")
+
+load("./psl/pslBattingBowlingDetails/PSLbowlers.RData")
+PSLBowlers <-pslBowlers
+
+a <-list.files("./psl/pslMatches/")
+PSLMatches <- gsub(".RData","",a)
+cat("length PSL match=",length(PSLMatches),"\n")
+
+a1 <-list.files("./psl/pslMatches2Teams/")
+PSLMatches2Teams <- gsub(".RData","",a1)
+
+a2 <-list.files("./psl/pslAllMatchesAllTeams/")
+PSLTeamsAll <- gsub(".RData","",a2)
+
+# PSL Team names
+PSLTeamNames <- list("Islamabad United","Karachi Kings", "Lahore Qalandars", "Multan Sultans",
+                     "Peshawar Zalmi", "Quetta Gladiators") 
 
