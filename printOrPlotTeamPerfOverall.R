@@ -29,7 +29,17 @@ printOrPlotTeamPerfOverall <- function(input,output,t20type="IPL"){
         analyzeTeamPerfOverall(input$teamMatchesT20M,input$overallperfFuncT20M,n[[1]][2],input$rankT20M,
                                input$plotOrTable2T20M,
                                input$repType2T20M,t20type)
+    } else if (t20type == "T20W"){
+        output$RankT20W = renderUI({
+            selectInput('rankT20W', 'Choose the rank',choices=rankValues,selected=input$rankT20W)
+        })
+        print(input$teamMatchesT20W)
+        n <- strsplit(as.character(input$teamMatchesT20W),"-")
+        analyzeTeamPerfOverall(input$teamMatchesT20W,input$overallperfFuncT20W,n[[1]][2],input$rankT20W,
+                               input$plotOrTable2T20W,
+                               input$repType2T20W,t20type)
     }  
+    
 
 
 }

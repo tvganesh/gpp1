@@ -22,6 +22,12 @@ analyzeTeamPerfOverall <- function(matches,matchFunc,team,rankV,plotOrTable2,rep
     matchesDF <- matches
     print(repType2)
     
+  } else if (t20type == "T20W"){
+    T20Wmatch <- paste("./t20/t20WomenAllMatchesAllTeams/", matches,".RData",sep="")
+    load(T20Wmatch)
+    matchesDF <- matches
+    print(repType2)
+    
   }
     
     if(plotOrTable2 == 1){

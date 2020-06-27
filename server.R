@@ -305,6 +305,30 @@ shinyServer(function(input, output,session) {
       
     })
     
+    ################################ T20 Women's Teams's overall performance ##############################
+    # Analyze overall T20 Womens team performance plots
+    output$T20WTeamPerfOverallPlot <- renderPlot({ 
+      printOrPlotTeamPerfOverall(input, output,"T20W")
+      
+    })
+    
+    # Analyze and display IPL Match table
+    output$T20WTeamPerfOverallPrint <- renderTable({ 
+      a <- printOrPlotTeamPerfOverall(input, output,"T20W")
+      a
+      
+    })
+    # Output either a table or a plot 
+    output$printOrPlotT20WTeamPerfoverall <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotTeamPerfOverall(input, output,"T20W"))){
+        tableOutput("T20WTeamPerfOverallPrint")
+      }
+      else{ #Else plot
+        plotOutput("T20WTeamPerfOverallPlot")
+      }
+    })   
+    
     ##########################################################################################
     # Big Bash League
     

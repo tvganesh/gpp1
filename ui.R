@@ -342,6 +342,30 @@ shinyUI(fluidPage(
                                                     )
                                                   ) 
                                                   
+                                         ),
+                                         # Analyze T20 Womens Team Overall Perf
+                                         tabPanel("Overall Performance",
+                                                  h4("Analyze T20 Womens team's overall performance"),
+                                                  sidebarPanel(
+                                                    selectInput('overallperfFuncT20W', 'Select function', teamOverallPerfFunc),
+                                                    selectInput('teamMatchesT20W', 'Select the team', T20WTeamsAll,selectize=FALSE, size=13),
+                                                    uiOutput("RankT20W"),
+                                                    radioButtons("plotOrTable2T20W", label = h4("Plot or table"),
+                                                                 choices = c("Plot" = 1, "Table" = 2), 
+                                                                 selected = 1,inline=T),
+                                                    radioButtons("repType2T20W", label = h4("Report Type"),
+                                                                 choices = c("Summary" = 1, "Detailed" = 2), 
+                                                                 selected = 1,inline=T)
+                                                  ),
+                                                  mainPanel(
+                                                    uiOutput('printOrPlotT20WTeamPerfoverall'),
+                                                    column(7, offset=4,
+                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                           tags$h5((tags$i("Dec 25,2016"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    )
+                                                  ) 
+                                                  
                                          )
                                          
                                )),
