@@ -283,6 +283,11 @@ shinyServer(function(input, output,session) {
       
     }) 
     
+    # Analyze and display bowler plots
+    output$bowlerPlotPSL <- renderPlot({  
+      analyzeBowlers(input$bowlerPSL,input$bowlerFuncPSL, "PSL")
+    })
+    
     ##########################################################################################
     # WBBL T20
     
@@ -290,7 +295,12 @@ shinyServer(function(input, output,session) {
     output$batsmanPlotWBB <- renderPlot({  
       analyzeBatsmen(input$batsmanWBB,input$batsmanFuncWBB, "WBB")
       
-    }) 
+    })
+    
+    # Analyze and display bowler plots
+    output$bowlerPlotWBB <- renderPlot({  
+      analyzeBowlers(input$bowlerWBB,input$bowlerFuncWBB, "WBB")
+    })
     
     ##########################################################################################
     # ODI Men
@@ -301,6 +311,12 @@ shinyServer(function(input, output,session) {
       
     }) 
     
+    # Analyze and display bowler plots
+    output$bowlerPlotODIM <- renderPlot({  
+      analyzeBowlers(input$bowlerODIM,input$bowlerFuncODIM, "ODIM")
+    })
+    
+    
     ##########################################################################################
     # ODI Women
     
@@ -309,6 +325,11 @@ shinyServer(function(input, output,session) {
       analyzeBatsmen(input$batsmanODIW,input$batsmanFuncODIW, "ODIW")
       
     }) 
+    
+    # Analyze and display bowler plots
+    output$bowlerPlotODIW <- renderPlot({  
+      analyzeBowlers(input$bowlerODIW,input$bowlerFuncODIW, "ODIW")
+    })
     
 })
 

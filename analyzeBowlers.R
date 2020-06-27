@@ -53,6 +53,34 @@ analyzeBowlers <- function(bowler,func, t20type="IPL") {
       # Get the team names
       teamNames <- getNTBTeams(i)
       print(teamNames)
+    } else if (t20type == "PSL"){
+      dir1="./psl/pslBattingBowlingDetails/"
+      i <- getPSLTeamIndex_bowler(bowler, dir1)
+      print(i)
+      # Get the team names
+      teamNames <- getPSLTeams(i)
+      print(teamNames)
+    } else if (t20type == "WBB"){
+      dir1="./wbb/wbbBattingBowlingDetails/"
+      i <- getWBBTeamIndex_bowler(bowler, dir1)
+      print(i)
+      # Get the team names
+      teamNames <- getWBBTeams(i)
+      print(teamNames)
+    } else if (t20type == "ODIM"){
+      dir1="./odi/odiBattingBowlingDetails/"
+      i <- getODIMTeamIndex_bowler(bowler, dir1)
+      print(i)
+      # Get the team names
+      teamNames <- getODIMTeams(i)
+      print(teamNames)
+    } else if (t20type == "ODIW"){
+      dir1="./odi/odiWomenBattingBowlingDetails/"
+      i <- getODIWTeamIndex_bowler(bowler, dir1)
+      print(i)
+      # Get the team names
+      teamNames <- getODIWTeams(i)
+      print(teamNames)
     }
     
     

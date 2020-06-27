@@ -401,6 +401,27 @@ shinyUI(fluidPage(
                                                     tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                              )
                                            )
+                                  ),
+                                  # Bowlers tab
+                                  tabPanel("PSL bowlers",
+                                           
+                                           h4('PSL bowler performances'),
+                                           
+                                           sidebarPanel(
+                                             selectInput('bowlerFuncPSL', 'Select function', bowlerFuncs),
+                                             selectInput('bowlerPSL', 'Select T20 bowler', PSLBowlers,selectize=FALSE, size=20)
+                                             
+                                             
+                                           ),
+                                           mainPanel(
+                                             plotOutput('bowlerPlotPSL'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           )
+                                           
                                   )
                                   
                       )),
@@ -421,6 +442,28 @@ shinyUI(fluidPage(
                                                     tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                               )
                                            )
+                                  ),
+                                  
+                                  # Bowlers tab
+                                  tabPanel("WBB bowlers",
+                                           
+                                           h4('WBB bowler performances'),
+                                           
+                                           sidebarPanel(
+                                             selectInput('bowlerFuncWBB', 'Select function', bowlerFuncs),
+                                             selectInput('bowlerWBB', 'Select T20 bowler', WBBBowlers,selectize=FALSE, size=20)
+                                             
+                                             
+                                           ),
+                                           mainPanel(
+                                             plotOutput('bowlerPlotWBB'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           )
+                                           
                                   )
                                   
                         )),
@@ -442,9 +485,30 @@ shinyUI(fluidPage(
                                                      tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                               )
                                             )
-                                   )
+                                   ),
+                                  # Bowlers tab
+                                  tabPanel("ODI Men bowlers",
+                                           
+                                           h4('ODI  bowler performances'),
+                                           
+                                           sidebarPanel(
+                                             selectInput('bowlerFuncODIM', 'Select function', bowlerFuncs),
+                                             selectInput('bowlerODIM', 'Select T20 bowler', ODIMBowlers,selectize=FALSE, size=20)
+                                             
+                                             
+                                           ),
+                                           mainPanel(
+                                             plotOutput('bowlerPlotODIM'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           )
+                                           
+                                  )
                                    
-    )),
+                     )),
     
     ############################# ODI Women ################################
     tabPanel("ODI Women",navbarPage("GooglyPlusPlus - ODI Women",
@@ -463,6 +527,27 @@ shinyUI(fluidPage(
                                                 tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                          )
                                        )
+                              ),
+                              # Bowlers tab
+                              tabPanel("ODI Women bowlers",
+                                       
+                                       h4('ODI  bowler performances'),
+                                       
+                                       sidebarPanel(
+                                         selectInput('bowlerFuncODIW', 'Select function', bowlerFuncs),
+                                         selectInput('bowlerODIW', 'Select T20 bowler', ODIWBowlers,selectize=FALSE, size=20)
+                                         
+                                         
+                                       ),
+                                       mainPanel(
+                                         plotOutput('bowlerPlotODIW'),
+                                         column(7, offset=4,
+                                                tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                tags$h5((tags$i("Dec 25,2016"))),
+                                                tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                         )
+                                       )
+                                       
                               )
                               
     )),
