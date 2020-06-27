@@ -598,6 +598,31 @@ shinyServer(function(input, output,session) {
       
     })
     
+    ################################ PSL T20  Teams's overall performance ##############################
+    # Analyze overall PSL  team performance plots
+    output$PSLTeamPerfOverallPlot <- renderPlot({ 
+      printOrPlotTeamPerfOverall(input, output,"PSL")
+      
+    })
+    
+    # Analyze and display PSL Match table
+    output$PSLTeamPerfOverallPrint <- renderTable({ 
+      a <- printOrPlotTeamPerfOverall(input, output,"PSL")
+      a
+      
+    })
+    # Output either a table or a plot 
+    output$printOrPlotPSLTeamPerfoverall <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotTeamPerfOverall(input, output,"PSL"))){
+        tableOutput("PSLTeamPerfOverallPrint")
+      }
+      else{ #Else plot
+        plotOutput("PSLTeamPerfOverallPlot")
+      }
+      
+    })
+    
     ##########################################################################################
     # WBBL T20
     
@@ -671,6 +696,30 @@ shinyServer(function(input, output,session) {
       
     })
     
+    ################################ WBB T20  Teams's overall performance ##############################
+    # Analyze overall WBB  team performance plots
+    output$WBBTeamPerfOverallPlot <- renderPlot({ 
+      printOrPlotTeamPerfOverall(input, output,"WBB")
+      
+    })
+    
+    # Analyze and display WBB Match table
+    output$WBBTeamPerfOverallPrint <- renderTable({ 
+      a <- printOrPlotTeamPerfOverall(input, output,"WBB")
+      a
+      
+    })
+    # Output either a table or a plot 
+    output$printOrPlotWBBTeamPerfoverall <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotTeamPerfOverall(input, output,"WBB"))){
+        tableOutput("WBBTeamPerfOverallPrint")
+      }
+      else{ #Else plot
+        plotOutput("WBBTeamPerfOverallPlot")
+      }
+      
+    })
     
     ##########################################################################################
     

@@ -672,10 +672,34 @@ shinyUI(fluidPage(
                                              )
                                            ) 
                                            
+                                  ),
+                                  # Analyze PSL T20 Team Overall Perf
+                                  tabPanel("Overall Performance",
+                                           h4("Analyze PSL team's overall performance"),
+                                           sidebarPanel(
+                                             selectInput('overallperfFuncPSL', 'Select function', teamOverallPerfFunc),
+                                             selectInput('teamMatchesPSL', 'Select the team', PSLTeamsAll,selectize=FALSE, size=13),
+                                             uiOutput("RankPSL"),
+                                             radioButtons("plotOrTable2PSL", label = h4("Plot or table"),
+                                                          choices = c("Plot" = 1, "Table" = 2), 
+                                                          selected = 1,inline=T),
+                                             radioButtons("repType2PSL", label = h4("Report Type"),
+                                                          choices = c("Summary" = 1, "Detailed" = 2), 
+                                                          selected = 1,inline=T)
+                                           ),
+                                           mainPanel(
+                                             uiOutput('printOrPlotPSLTeamPerfoverall'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           ) 
+                                           
                                   )
                                   
                       )),
-    ############################# WBBL T20 ################################
+    ############################# WBB T20 ################################
     tabPanel("WBBL T20",navbarPage("GooglyPlusPlus - Women's BBL",
                                   # Batsman tab
                                   tabPanel("WBB T20 batsman",
@@ -752,6 +776,30 @@ shinyUI(fluidPage(
                                            ),
                                            mainPanel(
                                              uiOutput("plotOrPrintWBBMatch2teams"),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           ) 
+                                           
+                                  ),
+                                  # Analyze WBBL T20 Team Overall Perf
+                                  tabPanel("Overall Performance",
+                                           h4("Analyze WBB team's overall performance"),
+                                           sidebarPanel(
+                                             selectInput('overallperfFuncWBB', 'Select function', teamOverallPerfFunc),
+                                             selectInput('teamMatchesWBB', 'Select the team', WBBTeamsAll,selectize=FALSE, size=13),
+                                             uiOutput("RankWBB"),
+                                             radioButtons("plotOrTable2WBB", label = h4("Plot or table"),
+                                                          choices = c("Plot" = 1, "Table" = 2), 
+                                                          selected = 1,inline=T),
+                                             radioButtons("repType2WBB", label = h4("Report Type"),
+                                                          choices = c("Summary" = 1, "Detailed" = 2), 
+                                                          selected = 1,inline=T)
+                                           ),
+                                           mainPanel(
+                                             uiOutput('printOrPlotWBBTeamPerfoverall'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
                                                     tags$h5((tags$i("Dec 25,2016"))),

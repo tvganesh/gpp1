@@ -40,6 +40,24 @@ analyzeTeamPerfOverall <- function(matches,matchFunc,team,rankV,plotOrTable2,rep
     matchesDF <- matches
     print(repType2)
     
+  } else if (t20type == "NTB"){
+    NTBmatch <- paste("./ntb/ntbAllMatchesAllTeams/", matches,".RData",sep="")
+    load(NTBmatch)
+    matchesDF <- matches
+    print(repType2)
+    
+  } else if (t20type == "PSL"){
+    PSLmatch <- paste("./psl/pslAllMatchesAllTeams/", matches,".RData",sep="")
+    load(PSLmatch)
+    matchesDF <- matches
+    print(repType2)
+    
+  } else if (t20type == "WBB"){
+    WBBmatch <- paste("./wbb/wbbAllMatchesAllTeams/", matches,".RData",sep="")
+    load(WBBmatch)
+    matchesDF <- matches
+    print(repType2)
+    
   }
     
     if(plotOrTable2 == 1){

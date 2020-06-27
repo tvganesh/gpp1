@@ -58,6 +58,26 @@ printOrPlotTeamPerfOverall <- function(input,output,t20type="IPL"){
                                input$plotOrTable2NTB,
                                input$repType2NTB,t20type)
         
+    } else if (t20type == "PSL"){
+        output$RankPSL = renderUI({
+            selectInput('rankPSL', 'Choose the rank',choices=rankValues,selected=input$rankPSL)
+        })
+        print(input$teamMatchesPSL)
+        n <- strsplit(as.character(input$teamMatchesPSL),"-")
+        analyzeTeamPerfOverall(input$teamMatchesPSL,input$overallperfFuncPSL,n[[1]][2],input$rankPSL,
+                               input$plotOrTable2PSL,
+                               input$repType2PSL,t20type)
+        
+    } else if (t20type == "WBB"){
+        output$RankWBB = renderUI({
+            selectInput('rankWBB', 'Choose the rank',choices=rankValues,selected=input$rankWBB)
+        })
+        print(input$teamMatchesWBB)
+        n <- strsplit(as.character(input$teamMatchesWBB),"-")
+        analyzeTeamPerfOverall(input$teamMatchesWBB,input$overallperfFuncWBB,n[[1]][2],input$rankWBB,
+                               input$plotOrTable2WBB,
+                               input$repType2WBB,t20type)
+        
     }
 
 }
