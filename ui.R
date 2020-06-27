@@ -749,6 +749,31 @@ shinyUI(fluidPage(
                                                     tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
                                              )
                                            ) 
+                                  ),
+                                  # Analyze Head-to-Head Mens ODI  matches
+                                  tabPanel("Head to head",
+                                           h4('Head-to-head between Mens ODI teams'),
+                                           sidebarPanel(
+                                             selectInput('matches2TeamFuncODIM', 'Select function', matches2TeamsFuncs),
+                                             selectInput('match2ODIM', 'Select matches', ODIMMatches2Teams,selectize=FALSE, size=13),                                
+                                             uiOutput("selectTeam2ODIM"),
+                                             radioButtons("plotOrTable1ODIM", label = h4("Plot or table"),
+                                                          choices = c("Plot" = 1, "Table" = 2), 
+                                                          selected = 1,inline=T),
+                                             radioButtons("repTypeODIM", label = h4("Report Type"),
+                                                          choices = c("Summary" = 1, "Detailed" = 2), 
+                                                          selected = 1,inline=T)
+                                             
+                                           ),
+                                           mainPanel(
+                                             uiOutput("plotOrPrintODIMMatch2teams"),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           ) 
+                                           
                                   )
                                    
                      )),

@@ -56,6 +56,12 @@ analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opp
         load(WBBmatch)
         matchesDF <- matches
         
+    } else if (t20type == "ODIM"){
+        ODIMmatch <- paste("./odi/odiMatches2Teams/", match2,".RData",sep="")
+        cat("ODIM2=",getwd(),"\n")
+        load(ODIMmatch)
+        matchesDF <- matches
+        
     }
     
     cat("dim1=",dim(matchesDF),"\n")
