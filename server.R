@@ -494,6 +494,36 @@ shinyServer(function(input, output,session) {
       
     })
     
+    #################################### PSL  Matches between 2 teams ######################
+    # Analyze Head to head confrontation of PSL T20  teams
+    
+    # Analyze and display PSL T20  Matches between 2 teams plot
+    output$PSLMatch2TeamsPlot <- renderPlot({ 
+      print("Women plot")
+      printOrPlotMatch2Teams(input, output,"PSL")
+      
+    })
+    
+    # Analyze and display PSL Match table
+    output$PSLMatch2TeamsPrint <- renderTable({ 
+      print("Women table")
+      a <- printOrPlotMatch2Teams(input, output,"PSL")
+      a
+    })
+    
+    # Output either a table or a plot 
+    output$plotOrPrintPSLMatch2teams <-  renderUI({ 
+      print("Women's match ")
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch2Teams(input, output,"PSL"))){
+        tableOutput("PSLMatch2TeamsPrint")
+      }
+      else{ #Else plot
+        plotOutput("PSLMatch2TeamsPlot")
+      }
+      
+    })
+    
     ##########################################################################################
     # WBBL T20
     

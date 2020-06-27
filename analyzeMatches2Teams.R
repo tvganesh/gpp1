@@ -44,6 +44,12 @@ analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opp
         load(NTBmatch)
         matchesDF <- matches
         
+    } else if (t20type == "PSL"){
+        PSLmatch <- paste("./psl/pslMatches2Teams/", match2,".RData",sep="")
+        cat("PSL2=",getwd(),"\n")
+        load(PSLmatch)
+        matchesDF <- matches
+        
     }
     
     cat("dim1=",dim(matchesDF),"\n")
