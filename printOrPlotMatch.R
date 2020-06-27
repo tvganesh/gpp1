@@ -16,7 +16,10 @@ printOrPlotMatch <- function(input,output,t20type="IPL"){
           m <- strsplit(as.character(input$match),"-")
     else if (t20type == "T20M")  
           m <- strsplit(as.character(input$matchT20M),"-")
-    
+    else if (t20type == "T20W")  
+      m <- strsplit(as.character(input$matchT20W),"-")
+    else if (t20type == "BBL")  
+      m <- strsplit(as.character(input$matchBBL),"-")
     # Get the teams
     teams <- c(m[[1]][1],m[[1]][2])
   
@@ -35,6 +38,18 @@ printOrPlotMatch <- function(input,output,t20type="IPL"){
       })
       otherTeam = setdiff(teams,input$teamT20M)
       cat("T20 team=",input$teamT20M,"other team=",otherTeam)
+    } else if (t20type == "T20W"){
+      output$selectTeamT20W <- renderUI({ 
+        selectInput('teamT20W', 'Choose team',choices=teams,selected=input$teamT20W)
+      })
+      otherTeam = setdiff(teams,input$teamT20W)
+      cat("T20 team=",input$teamT20W,"other team=",otherTeam)
+    } else if (t20type == "BBL"){
+      output$selectTeamBBL <- renderUI({ 
+        selectInput('teamBBL', 'Choose team',choices=teams,selected=input$teamBBL)
+      })
+      otherTeam = setdiff(teams,input$teamBBL)
+      cat("T20 team=",input$teamBBL,"other team=",otherTeam)
     }
     
     print(otherTeam)
@@ -44,6 +59,10 @@ printOrPlotMatch <- function(input,output,t20type="IPL"){
           a <- analyzeMatches(input$match,input$matchFunc,input$plotOrTable,input$team,otherTeam,t20type)
     else if (t20type == "T20M")
           a <- analyzeMatches(input$matchT20M,input$matchFuncT20M,input$plotOrTableT20M,input$teamT20M,otherTeam,t20type)
+    else if (t20type == "T20W")
+      a <- analyzeMatches(input$matchT20W,input$matchFuncT20W,input$plotOrTableT20W,input$teamT20W,otherTeam,t20type)
+    else if (t20type == "BBL")
+      a <- analyzeMatches(input$matchBBL,input$matchFuncBBL,input$plotOrTableBBL,input$teamBBL,otherTeam,t20type)
     head(a)
     a
     

@@ -297,7 +297,26 @@ shinyUI(fluidPage(
                                                            tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                                     )
                                                   )
-                                                  
+                                         ),
+                                         tabPanel("Intl T20 Women's Match",
+                                                  h4('Analyze an Intl T20 match'),                                                        
+                                                  sidebarPanel(
+                                                    selectInput('matchFuncT20W', 'Select match function', matchFuncs),                      
+                                                    selectInput('matchT20W', 'Select IPL match ', T20WMatches,selectize=FALSE, size=15),    
+                                                    uiOutput("selectTeamT20W"),
+                                                    radioButtons("plotOrTableT20W", label = h4("Plot or table"),                                
+                                                                 choices = c("Plot" = 1, "Table" = 2),                                                   
+                                                                 selected = 1,inline=T)                                                                  
+                                                    
+                                                  ),
+                                                  mainPanel(
+                                                    uiOutput("plotOrPrintT20WMatch"),                                                       
+                                                    column(7, offset=4,
+                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
+                                                           tags$h5((tags$i("Dec 25,2016"))),                                                       
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                                    )
+                                                  ) 
                                          )
                                          
                                )),
@@ -340,7 +359,27 @@ shinyUI(fluidPage(
                                              )
                                            )
                                            
-                                         )
+                                         ),
+                                  tabPanel("Intl BBL  Match",
+                                           h4('Analyze BBL T20 match'),                                                        
+                                           sidebarPanel(
+                                             selectInput('matchFuncBBL', 'Select match function', matchFuncs),                      
+                                             selectInput('matchBBL', 'Select IPL match ', BBLMatches,selectize=FALSE, size=15),    
+                                             uiOutput("selectTeamBBL"),
+                                             radioButtons("plotOrTableBBL", label = h4("Plot or table"),                                
+                                                          choices = c("Plot" = 1, "Table" = 2),                                                   
+                                                          selected = 1,inline=T)                                                                  
+                                             
+                                           ),
+                                           mainPanel(
+                                             uiOutput("plotOrPrintBBLMatch"),                                                       
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
+                                                    tags$h5((tags$i("Dec 25,2016"))),                                                       
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                             )
+                                           ) 
+                                  )
                                            
                             )),
     ############################# Natwest T20 ################################

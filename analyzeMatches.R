@@ -24,6 +24,18 @@ analyzeMatches <- function(match,matchFunc,plotOrTable,team,opposition,t20type) 
         load(T20Mmatch)
         matchDF <- overs  
 
+    } else if (t20type == "T20W"){
+        T20Wmatch <- paste("./t20/t20WomenMatches/", match,".RData",sep="")
+        cat("analymatchmen Wo=",getwd())
+        load(T20Wmatch)
+        matchDF <- overs  
+        
+    } else if (t20type == "BBL"){
+        BBLmatch <- paste("./bbl/bblMatches/", match,".RData",sep="")
+        cat("analymatchmen BBL=",getwd())
+        load(BBLmatch)
+        matchDF <- overs  
+        
     }
 
     cat("dim(match=",dim(matchDF),"\n")    
