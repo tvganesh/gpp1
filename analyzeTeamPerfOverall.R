@@ -34,6 +34,12 @@ analyzeTeamPerfOverall <- function(matches,matchFunc,team,rankV,plotOrTable2,rep
     matchesDF <- matches
     print(repType2)
     
+  } else if (t20type == "NTB"){
+    NTBmatch <- paste("./ntb/ntbAllMatchesAllTeams/", matches,".RData",sep="")
+    load(NTBmatch)
+    matchesDF <- matches
+    print(repType2)
+    
   }
     
     if(plotOrTable2 == 1){

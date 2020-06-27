@@ -404,7 +404,7 @@ shinyServer(function(input, output,session) {
     })
     
     ################################ BBL T20  Teams's overall performance ##############################
-    # Analyze overall BBL Womens team performance plots
+    # Analyze overall BBL  team performance plots
     output$BBLTeamPerfOverallPlot <- renderPlot({ 
       printOrPlotTeamPerfOverall(input, output,"BBL")
       
@@ -496,6 +496,31 @@ shinyServer(function(input, output,session) {
       }
       else{ #Else plot
         plotOutput("NTBMatch2TeamsPlot")
+      }
+      
+    })
+    
+    ################################ NTB T20  Teams's overall performance ##############################
+    # Analyze overall NTB  team performance plots
+    output$NTBTeamPerfOverallPlot <- renderPlot({ 
+      printOrPlotTeamPerfOverall(input, output,"NTB")
+      
+    })
+    
+    # Analyze and display NTB Match table
+    output$NTBTeamPerfOverallPrint <- renderTable({ 
+      a <- printOrPlotTeamPerfOverall(input, output,"NTB")
+      a
+      
+    })
+    # Output either a table or a plot 
+    output$printOrPlotNTBTeamPerfoverall <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotTeamPerfOverall(input, output,"NTB"))){
+        tableOutput("NTBTeamPerfOverallPrint")
+      }
+      else{ #Else plot
+        plotOutput("NTBTeamPerfOverallPlot")
       }
       
     })

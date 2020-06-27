@@ -48,6 +48,16 @@ printOrPlotTeamPerfOverall <- function(input,output,t20type="IPL"){
                                input$plotOrTable2BBL,
                                input$repType2BBL,t20type)
     
+    } else if (t20type == "NTB"){
+        output$RankNTB = renderUI({
+            selectInput('rankNTB', 'Choose the rank',choices=rankValues,selected=input$rankNTB)
+        })
+        print(input$teamMatchesNTB)
+        n <- strsplit(as.character(input$teamMatchesNTB),"-")
+        analyzeTeamPerfOverall(input$teamMatchesNTB,input$overallperfFuncNTB,n[[1]][2],input$rankNTB,
+                               input$plotOrTable2NTB,
+                               input$repType2NTB,t20type)
+        
     }
 
 }

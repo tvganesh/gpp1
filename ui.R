@@ -562,6 +562,30 @@ shinyUI(fluidPage(
                                              )
                                            ) 
                                            
+                                  ),
+                                  # Analyze NTB T20 Team Overall Perf
+                                  tabPanel("Overall Performance",
+                                           h4("Analyze NTB team's overall performance"),
+                                           sidebarPanel(
+                                             selectInput('overallperfFuncNTB', 'Select function', teamOverallPerfFunc),
+                                             selectInput('teamMatchesNTB', 'Select the team', NTBTeamsAll,selectize=FALSE, size=13),
+                                             uiOutput("RankNTB"),
+                                             radioButtons("plotOrTable2NTB", label = h4("Plot or table"),
+                                                          choices = c("Plot" = 1, "Table" = 2), 
+                                                          selected = 1,inline=T),
+                                             radioButtons("repType2NTB", label = h4("Report Type"),
+                                                          choices = c("Summary" = 1, "Detailed" = 2), 
+                                                          selected = 1,inline=T)
+                                           ),
+                                           mainPanel(
+                                             uiOutput('printOrPlotNTBTeamPerfoverall'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           ) 
+                                           
                                   )
                                   
                        )),
