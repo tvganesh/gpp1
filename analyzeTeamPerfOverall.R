@@ -28,6 +28,12 @@ analyzeTeamPerfOverall <- function(matches,matchFunc,team,rankV,plotOrTable2,rep
     matchesDF <- matches
     print(repType2)
     
+  } else if (t20type == "BBL"){
+    BBLmatch <- paste("./bbl/bblAllMatchesAllTeams/", matches,".RData",sep="")
+    load(BBLmatch)
+    matchesDF <- matches
+    print(repType2)
+    
   }
     
     if(plotOrTable2 == 1){

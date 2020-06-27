@@ -403,6 +403,31 @@ shinyServer(function(input, output,session) {
       
     })
     
+    ################################ BBL T20  Teams's overall performance ##############################
+    # Analyze overall BBL Womens team performance plots
+    output$BBLTeamPerfOverallPlot <- renderPlot({ 
+      printOrPlotTeamPerfOverall(input, output,"BBL")
+      
+    })
+    
+    # Analyze and display IPL Match table
+    output$BBLTeamPerfOverallPrint <- renderTable({ 
+      a <- printOrPlotTeamPerfOverall(input, output,"BBL")
+      a
+      
+    })
+    # Output either a table or a plot 
+    output$printOrPlotBBLTeamPerfoverall <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotTeamPerfOverall(input, output,"BBL"))){
+        tableOutput("BBLTeamPerfOverallPrint")
+      }
+      else{ #Else plot
+        plotOutput("BBLTeamPerfOverallPlot")
+      }
+    
+   })
+    
     ##########################################################################################
     # Natwest T20
     

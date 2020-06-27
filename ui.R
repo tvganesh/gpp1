@@ -453,6 +453,30 @@ shinyUI(fluidPage(
                                              )
                                            ) 
                                            
+                                  ),
+                                  # Analyze BBL T20 Team Overall Perf
+                                  tabPanel("Overall Performance",
+                                           h4("Analyze BBL team's overall performance"),
+                                           sidebarPanel(
+                                             selectInput('overallperfFuncBBL', 'Select function', teamOverallPerfFunc),
+                                             selectInput('teamMatchesBBL', 'Select the team', BBLTeamsAll,selectize=FALSE, size=13),
+                                             uiOutput("RankBBL"),
+                                             radioButtons("plotOrTable2BBL", label = h4("Plot or table"),
+                                                          choices = c("Plot" = 1, "Table" = 2), 
+                                                          selected = 1,inline=T),
+                                             radioButtons("repType2BBL", label = h4("Report Type"),
+                                                          choices = c("Summary" = 1, "Detailed" = 2), 
+                                                          selected = 1,inline=T)
+                                           ),
+                                           mainPanel(
+                                             uiOutput('printOrPlotBBLTeamPerfoverall'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           ) 
+                                           
                                   )
                                            
                             )),
