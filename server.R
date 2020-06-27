@@ -421,6 +421,36 @@ shinyServer(function(input, output,session) {
       
     })
     
+    #################################### NTB  Matches between 2 teams ######################
+    # Analyze Head to head confrontation of NTB T20  teams
+    
+    # Analyze and display NTB T20  Matches between 2 teams plot
+    output$NTBMatch2TeamsPlot <- renderPlot({ 
+      print("Women plot")
+      printOrPlotMatch2Teams(input, output,"NTB")
+      
+    })
+    
+    # Analyze and display NTB Match table
+    output$NTBMatch2TeamsPrint <- renderTable({ 
+      print("Women table")
+      a <- printOrPlotMatch2Teams(input, output,"NTB")
+      a
+    })
+    
+    # Output either a table or a plot 
+    output$plotOrPrintNTBMatch2teams <-  renderUI({ 
+      print("Women's match ")
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch2Teams(input, output,"NTB"))){
+        tableOutput("NTBMatch2TeamsPrint")
+      }
+      else{ #Else plot
+        plotOutput("NTBMatch2TeamsPlot")
+      }
+      
+    })
+    
     ##########################################################################################
     # PSL T20
     

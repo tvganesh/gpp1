@@ -38,6 +38,12 @@ analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opp
         load(BBLmatch)
         matchesDF <- matches
         
+    } else if (t20type == "NTB"){
+        NTBmatch <- paste("./ntb/ntbMatches2Teams/", match2,".RData",sep="")
+        cat("NTB2=",getwd(),"\n")
+        load(NTBmatch)
+        matchesDF <- matches
+        
     }
     
     cat("dim1=",dim(matchesDF),"\n")
