@@ -139,8 +139,7 @@ shinyServer(function(input, output,session) {
     
     # Analyze and display bowler plots
     output$bowlerPlotT20M <- renderPlot({  
-      analyzeBowlers(input$bowlerT20M,input$bowlerFuncT20M, "T20M")
-      
+          analyzeBowlers(input$bowlerT20M,input$bowlerFuncT20M, "T20M")
     })
     
     

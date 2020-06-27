@@ -16,16 +16,13 @@ shinyUI(fluidPage(
   
   ## Title and headings
   titlePanel("GooglyPlusPlus takes wing!!!"),
-  h5(
-    "GooglyPlusPlus
-    "
-  ),
+  h5("GooglyPlusPlus"),
   
   ## Beginning of navlistPanel
   navlistPanel(
     widths = c(2, 10),
-    "Data", 
-    tabPanel("IPL", navbarPage("GooglyPlusPlus - Indian Premier League (IPL)",
+    "Match formats", 
+    tabPanel("IPL T20", navbarPage("GooglyPlusPlus - Indian Premier League (IPL)",
                                  # Batsman tab
                                tabsetPanel(id = "tabs",
                                  tabPanel("IPL batsman", value = "IPL",
@@ -38,8 +35,9 @@ shinyUI(fluidPage(
                                             plotOutput('batsmanPlotIPL'),
                                             column(7, offset=4,
                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                   tags$h5((tags$i("Dec 25,2016"))),
-                                                   tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                   tags$h5((tags$i("Jun 28,2020"))),
+                                                   tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                   tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                             )
                                           )
                                           
@@ -59,8 +57,9 @@ shinyUI(fluidPage(
                                             plotOutput('bowlerPlotIPL'),
                                             column(7, offset=4,
                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                   tags$h5((tags$i("Dec 25,2016"))),
-                                                   tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                   tags$h5((tags$i("Jun 28,2020"))),
+                                                   tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                   tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                             )
                                           )
                                           
@@ -81,8 +80,9 @@ shinyUI(fluidPage(
                                             uiOutput("plotOrPrintIPLMatch"),
                                             column(7, offset=4,
                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                   tags$h5((tags$i("Dec 25,2016"))),
-                                                   tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                   tags$h5((tags$i("Jun 28,2020"))),
+                                                   tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                   tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                             )
                                           )
                                           
@@ -106,8 +106,9 @@ shinyUI(fluidPage(
                                             uiOutput("plotOrPrintIPLMatch2teams"),
                                             column(7, offset=4,
                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                   tags$h5((tags$i("Dec 25,2016"))),
-                                                   tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                   tags$h5((tags$i("Jun 28,2020"))),
+                                                   tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                   tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                             )
                                           ) 
                                           
@@ -130,8 +131,9 @@ shinyUI(fluidPage(
                                             uiOutput('printOrPlotIPLTeamPerfoverall'),
                                             column(7, offset=4,
                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                   tags$h5((tags$i("Dec 25,2016"))),
-                                                   tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                   tags$h5((tags$i("Jun 28,2020"))),
+                                                   tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                   tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                             )
                                           ) 
                                           
@@ -150,7 +152,7 @@ shinyUI(fluidPage(
                                  )))),
     
     ############################# International T20 (Men) ################################
-    tabPanel("Intl. T20(men)",navbarPage("GooglyPlusPlus - Intl. T20 (men)",
+    tabPanel("Intl. T20 (men)",navbarPage("GooglyPlusPlus - International T20 (men)",
                                          # Batsman tab
                                          tabPanel("Intl T20 batsman",
                                                   h4('Analyze Intl T20 batsman performances'),
@@ -162,8 +164,9 @@ shinyUI(fluidPage(
                                                     plotOutput('batsmanPlotT20M'),
                                                     column(7, offset=4,
                                                            tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                           tags$h5((tags$i("Jun 28,2020"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                           tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                     )
                                                   )
                                          ),
@@ -182,8 +185,9 @@ shinyUI(fluidPage(
                                                     plotOutput('bowlerPlotT20M'),
                                                     column(7, offset=4,
                                                            tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                           tags$h5((tags$i("Jun 28,2020"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                           tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                     )
                                                   )
 
@@ -202,9 +206,10 @@ shinyUI(fluidPage(
                                                   mainPanel(
                                                     uiOutput("plotOrPrintT20MMatch"),                                                       
                                                     column(7, offset=4,
-                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
-                                                           tags$h5((tags$i("Dec 25,2016"))),                                                       
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                           tags$h5((tags$i("Jun 28,2020"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                           tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                     )
                                                   ) 
                                             ),
@@ -228,8 +233,9 @@ shinyUI(fluidPage(
                                                     uiOutput("plotOrPrintT20MMatch2teams"),
                                                     column(7, offset=4,
                                                            tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                           tags$h5((tags$i("Jun 28, 2020"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                           tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                     )
                                                   ) 
                                                   
@@ -252,8 +258,9 @@ shinyUI(fluidPage(
                                                     uiOutput('printOrPlotT20MTeamPerfoverall'),
                                                     column(7, offset=4,
                                                            tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                           tags$h5((tags$i("Jun 28, 2020"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                           tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                     )
                                                   ) 
                                                   
@@ -261,7 +268,7 @@ shinyUI(fluidPage(
                                          
                                       )),
     ############################# International T20 (Women) ################################
-    tabPanel("Intl. T20(women)",navbarPage("GooglyPlusPlus - Intl. T20 (women)",
+    tabPanel("Intl. T20 (women)",navbarPage("GooglyPlusPlus - International T20 (women)",
                                          # Batsman tab
                                          tabPanel("Intl T20 batsman",
                                                   h4('Analyze Intl T20 batsman performances'),
@@ -273,8 +280,9 @@ shinyUI(fluidPage(
                                                     plotOutput('batsmanPlotT20W'),
                                                     column(7, offset=4,
                                                            tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                           tags$h5((tags$i("Jun 28, 2020"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                           tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                     )
                                                   )
                                          ),
@@ -293,8 +301,9 @@ shinyUI(fluidPage(
                                                     plotOutput('bowlerPlotT20W'),
                                                     column(7, offset=4,
                                                            tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                           tags$h5((tags$i("Jun 28, 2020"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                           tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                     )
                                                   )
                                          ),
@@ -312,9 +321,10 @@ shinyUI(fluidPage(
                                                   mainPanel(
                                                     uiOutput("plotOrPrintT20WMatch"),                                                       
                                                     column(7, offset=4,
-                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
-                                                           tags$h5((tags$i("Dec 25,2016"))),                                                       
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                           tags$h5((tags$i("Jun 28, 2020"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                           tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                     )
                                                   ) 
                                          ),
@@ -337,8 +347,9 @@ shinyUI(fluidPage(
                                                     uiOutput("plotOrPrintT20WMatch2teams"),
                                                     column(7, offset=4,
                                                            tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                           tags$h5((tags$i("Jun 28, 2020"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                           tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                     )
                                                   ) 
                                                   
@@ -361,8 +372,9 @@ shinyUI(fluidPage(
                                                     uiOutput('printOrPlotT20WTeamPerfoverall'),
                                                     column(7, offset=4,
                                                            tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                           tags$h5((tags$i("Dec 25,2016"))),
-                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                           tags$h5((tags$i("Jun 28, 2020"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                           tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                     )
                                                   ) 
                                                   
@@ -382,8 +394,9 @@ shinyUI(fluidPage(
                                                       plotOutput('batsmanPlotBBL'),
                                                       column(7, offset=4,
                                                              tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                             tags$h5((tags$i("Dec 25,2016"))),
-                                                             tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                             tags$h5((tags$i("Jun 28, 2020"))),
+                                                             tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                             tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                                       )
                                                     )
                                            ),
@@ -403,8 +416,9 @@ shinyUI(fluidPage(
                                              plotOutput('bowlerPlotBBL'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            )
                                            
@@ -423,9 +437,10 @@ shinyUI(fluidPage(
                                            mainPanel(
                                              uiOutput("plotOrPrintBBLMatch"),                                                       
                                              column(7, offset=4,
-                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
-                                                    tags$h5((tags$i("Dec 25,2016"))),                                                       
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                   ),
@@ -448,8 +463,9 @@ shinyUI(fluidPage(
                                              uiOutput("plotOrPrintBBLMatch2teams"),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                            
@@ -472,8 +488,9 @@ shinyUI(fluidPage(
                                              uiOutput('printOrPlotBBLTeamPerfoverall'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                            
@@ -493,8 +510,9 @@ shinyUI(fluidPage(
                                              plotOutput('batsmanPlotNTB'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            )
                                          ),
@@ -513,8 +531,9 @@ shinyUI(fluidPage(
                                              plotOutput('bowlerPlotNTB'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            )
                                   ),
@@ -532,9 +551,10 @@ shinyUI(fluidPage(
                                            mainPanel(
                                              uiOutput("plotOrPrintNTBMatch"),                                                       
                                              column(7, offset=4,
-                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
-                                                    tags$h5((tags$i("Dec 25,2016"))),                                                       
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                   ),
@@ -557,8 +577,9 @@ shinyUI(fluidPage(
                                              uiOutput("plotOrPrintNTBMatch2teams"),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                            
@@ -581,8 +602,9 @@ shinyUI(fluidPage(
                                              uiOutput('printOrPlotNTBTeamPerfoverall'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                            
@@ -602,8 +624,9 @@ shinyUI(fluidPage(
                                              plotOutput('batsmanPlotPSL'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            )
                                   ),
@@ -622,8 +645,9 @@ shinyUI(fluidPage(
                                              plotOutput('bowlerPlotPSL'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            )
                                            
@@ -642,9 +666,10 @@ shinyUI(fluidPage(
                                            mainPanel(
                                              uiOutput("plotOrPrintPSLMatch"),                                                       
                                              column(7, offset=4,
-                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
-                                                    tags$h5((tags$i("Dec 25,2016"))),                                                       
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                   ),
@@ -667,8 +692,9 @@ shinyUI(fluidPage(
                                              uiOutput("plotOrPrintPSLMatch2teams"),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                            
@@ -691,8 +717,9 @@ shinyUI(fluidPage(
                                              uiOutput('printOrPlotPSLTeamPerfoverall'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                            
@@ -700,7 +727,7 @@ shinyUI(fluidPage(
                                   
                       )),
     ############################# WBB T20 ################################
-    tabPanel("WBBL T20",navbarPage("GooglyPlusPlus - Women's BBL",
+    tabPanel("WBBL T20",navbarPage("GooglyPlusPlus - Women's Big Bash League",
                                   # Batsman tab
                                   tabPanel("WBB T20 batsman",
                                            h4('Analyze WBBL T20 batsman performances'),
@@ -712,9 +739,10 @@ shinyUI(fluidPage(
                                              plotOutput('batsmanPlotWBB'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
-                                              )
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
+                                             )
                                            )
                                   ),
                                   
@@ -733,8 +761,9 @@ shinyUI(fluidPage(
                                              plotOutput('bowlerPlotWBB'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            )
                                            
@@ -753,9 +782,10 @@ shinyUI(fluidPage(
                                            mainPanel(
                                              uiOutput("plotOrPrintWBBMatch"),                                                       
                                              column(7, offset=4,
-                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
-                                                    tags$h5((tags$i("Dec 25,2016"))),                                                       
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                   ),
@@ -778,8 +808,9 @@ shinyUI(fluidPage(
                                              uiOutput("plotOrPrintWBBMatch2teams"),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                            
@@ -802,8 +833,9 @@ shinyUI(fluidPage(
                                              uiOutput('printOrPlotWBBTeamPerfoverall'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                            
@@ -812,7 +844,7 @@ shinyUI(fluidPage(
                         )),
     
     ############################# ODI Men ################################
-    tabPanel("ODI Men",navbarPage("GooglyPlusPlus - ODI Men",
+    tabPanel("ODI Men",navbarPage("GooglyPlusPlus - One Day International (ODI) Men",
                                    # Batsman tab
                                    tabPanel("ODI Men batsman",
                                             h4('Analyze ODI batsman performances'),
@@ -824,8 +856,9 @@ shinyUI(fluidPage(
                                               plotOutput('batsmanPlotODIM'),
                                               column(7, offset=4,
                                                      tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                     tags$h5((tags$i("Dec 25,2016"))),
-                                                     tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                     tags$h5((tags$i("Jun 28, 2020"))),
+                                                     tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                     tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                               )
                                             )
                                    ),
@@ -844,8 +877,9 @@ shinyUI(fluidPage(
                                              plotOutput('bowlerPlotODIM'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            )
                                            
@@ -864,9 +898,10 @@ shinyUI(fluidPage(
                                            mainPanel(
                                              uiOutput("plotOrPrintODIMMatch"),                                                       
                                              column(7, offset=4,
-                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
-                                                    tags$h5((tags$i("Dec 25,2016"))),                                                       
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                   ),
@@ -889,8 +924,9 @@ shinyUI(fluidPage(
                                              uiOutput("plotOrPrintODIMMatch2teams"),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                            
@@ -913,8 +949,9 @@ shinyUI(fluidPage(
                                              uiOutput('printOrPlotODIMTeamPerfoverall'),
                                              column(7, offset=4,
                                                     tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                    tags$h5((tags$i("Dec 25,2016"))),
-                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    tags$h5((tags$i("Jun 28, 2020"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                    tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                              )
                                            ) 
                                            
@@ -923,7 +960,7 @@ shinyUI(fluidPage(
                      )),
     
     ############################# ODI Women ################################
-    tabPanel("ODI Women",navbarPage("GooglyPlusPlus - ODI Women",
+    tabPanel("ODI Women",navbarPage("GooglyPlusPlus - One Day International (ODI) Women",
                               # Batsman tab
                               tabPanel("ODI Women batsman",
                                        h4('Analyze ODI batsman performances'),
@@ -935,8 +972,9 @@ shinyUI(fluidPage(
                                          plotOutput('batsmanPlotODIW'),
                                          column(7, offset=4,
                                                 tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                tags$h5((tags$i("Dec 25,2016"))),
-                                                tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                tags$h5((tags$i("Jun 28, 2020"))),
+                                                tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                          )
                                        )
                               ),
@@ -955,8 +993,9 @@ shinyUI(fluidPage(
                                          plotOutput('bowlerPlotODIW'),
                                          column(7, offset=4,
                                                 tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                tags$h5((tags$i("Dec 25,2016"))),
-                                                tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                tags$h5((tags$i("Jun 28, 2020"))),
+                                                tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                          )
                                        )
                               ),
@@ -974,9 +1013,10 @@ shinyUI(fluidPage(
                                        mainPanel(
                                          uiOutput("plotOrPrintODIWMatch"),                                                       
                                          column(7, offset=4,
-                                                tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
-                                                tags$h5((tags$i("Dec 25,2016"))),                                                       
-                                                tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                                tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                tags$h5((tags$i("Jun 28, 2020"))),
+                                                tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                          )
                                        ) 
                               ),
@@ -999,8 +1039,9 @@ shinyUI(fluidPage(
                                          uiOutput("plotOrPrintODIWMatch2teams"),
                                          column(7, offset=4,
                                                 tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                tags$h5((tags$i("Dec 25,2016"))),
-                                                tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                tags$h5((tags$i("Jun 28, 2020"))),
+                                                tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                          )
                                        ) 
                                        
@@ -1023,8 +1064,9 @@ shinyUI(fluidPage(
                                          uiOutput('printOrPlotODIWTeamPerfoverall'),
                                          column(7, offset=4,
                                                 tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
-                                                tags$h5((tags$i("Dec 25,2016"))),
-                                                tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                tags$h5((tags$i("Jun 28, 2020"))),
+                                                tags$h6("Data source Cricsheet: http://cricsheet.org/"),
+                                                tags$a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr")
                                          )
                                        ) 
                                        
