@@ -255,13 +255,23 @@ shinyServer(function(input, output,session) {
       
     }) 
     
+    # Analyze and display bowler plots
+    output$bowlerPlotBBL <- renderPlot({  
+      analyzeBowlers(input$bowlerBBL,input$bowlerFuncBBL, "BBL")
+      
+    })
+    
     ##########################################################################################
     # Natwest T20
     
     # Analyze and display batsmen plots
     output$batsmanPlotNTB <- renderPlot({  
       analyzeBatsmen(input$batsmanNTB,input$batsmanFuncNTB, "NTB")
-      
+    })
+    
+    # Analyze and display bowler plots
+    output$bowlerPlotNTB <- renderPlot({  
+      analyzeBowlers(input$bowlerNTB,input$bowlerFuncNTB, "NTB")
     })
     
     ##########################################################################################

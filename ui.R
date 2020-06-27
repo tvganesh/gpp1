@@ -318,9 +318,31 @@ shinyUI(fluidPage(
                                                              tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                                       )
                                                     )
+                                           ),
+ 
+                                         # Bowlers tab
+                                         tabPanel("BBL bowlers",
+                                           
+                                           h4('BBL bowler performances'),
+                                           
+                                           sidebarPanel(
+                                             selectInput('bowlerFuncBBL', 'Select function', bowlerFuncs),
+                                             selectInput('bowlerBBL', 'Select T20 bowler', BBLBowlers,selectize=FALSE, size=20)
+                                             
+                                             
+                                           ),
+                                           mainPanel(
+                                             plotOutput('bowlerPlotBBL'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
                                            )
                                            
-                  )),
+                                         )
+                                           
+                            )),
     ############################# Natwest T20 ################################
     tabPanel("NTB T20",navbarPage("GooglyPlusPlus - Natwest T20",
                                   # Batsman tab
@@ -338,6 +360,27 @@ shinyUI(fluidPage(
                                                     tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                              )
                                            )
+                                         ),
+                                    # Bowlers tab
+                                    tabPanel("NTB bowlers",
+                                           
+                                           h4('NTB bowler performances'),
+                                           
+                                           sidebarPanel(
+                                             selectInput('bowlerFuncNTB', 'Select function', bowlerFuncs),
+                                             selectInput('bowlerNTB', 'Select T20 bowler', NTBBowlers,selectize=FALSE, size=20)
+                                             
+                                             
+                                           ),
+                                           mainPanel(
+                                             plotOutput('bowlerPlotNTB'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           )
+                                           
                                   )
                                   
                        )),
