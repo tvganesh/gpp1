@@ -27,7 +27,9 @@ printOrPlotMatch2Teams <- function(input,output,t20type="IPL"){
     else if (t20type == "WBB")  
         p <- strsplit(as.character(input$match2WBB),"-")      
     else if (t20type == "ODIM")  
-        p <- strsplit(as.character(input$match2ODIM),"-")      
+        p <- strsplit(as.character(input$match2ODIM),"-") 
+    else if (t20type == "ODIW")  
+        p <- strsplit(as.character(input$match2ODIW),"-")
     
     teams2 <- c(p[[1]][1],p[[1]][2])
     
@@ -86,7 +88,13 @@ printOrPlotMatch2Teams <- function(input,output,t20type="IPL"){
         })
         otherTeam = setdiff(teams2,input$team2ODIM)
         cat("T20 team=",input$team2ODIM,"other team=",otherTeam)
-    }      
+    }  else if (t20type == "ODIW"){
+        output$selectTeam2ODIW <- renderUI({ 
+            selectInput('team2ODIW', 'Choose team',choices=teams2,selected=input$team2ODIW)
+        })
+        otherTeam = setdiff(teams2,input$team2ODIW)
+        cat("T20 team=",input$team2ODIW,"other team=",otherTeam)
+    }       
 
     
     
@@ -115,6 +123,9 @@ printOrPlotMatch2Teams <- function(input,output,t20type="IPL"){
     else if (t20type == "ODIM")
         a <- analyzeMatches2Teams(input$match2ODIM,input$matches2TeamFuncODIM,input$plotOrTable1ODIM,
                                   input$repTypeODIM,input$team2ODIM,otherTeam,t20type)   
+    else if (t20type == "ODIW")
+        a <- analyzeMatches2Teams(input$match2ODIW,input$matches2TeamFuncODIW,input$plotOrTable1ODIW,
+                                  input$repTypeODIW,input$team2ODIW,otherTeam,t20type) 
     
     print("Output oa anlsy2")
     head(a)    

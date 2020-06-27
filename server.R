@@ -714,7 +714,37 @@ shinyServer(function(input, output,session) {
       
     })
     
+    
     ##########################################################################################
+    
+    # Analyze Head to head confrontation of ODI Women  teams
+    
+    # Analyze and display ODI Women  Matches between 2 teams plot
+    output$ODIWMatch2TeamsPlot <- renderPlot({ 
+      print("Women plot")
+      printOrPlotMatch2Teams(input, output,"ODIW")
+      
+    })
+    
+    # Analyze and display ODIW Match table
+    output$ODIWMatch2TeamsPrint <- renderTable({ 
+      print("Women table")
+      a <- printOrPlotMatch2Teams(input, output,"ODIW")
+      a
+    })
+    
+    # Output either a table or a plot 
+    output$plotOrPrintODIWMatch2teams <-  renderUI({ 
+      print("Women's match ")
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch2Teams(input, output,"ODIW"))){
+        tableOutput("ODIWMatch2TeamsPrint")
+      }
+      else{ #Else plot
+        plotOutput("ODIWMatch2TeamsPlot")
+      }
+      
+    })
     
 })
 
