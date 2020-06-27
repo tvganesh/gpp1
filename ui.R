@@ -192,7 +192,7 @@ shinyUI(fluidPage(
                                                   h4('Analyze an Intl T20 match'),                                                        
                                                   sidebarPanel(
                                                     selectInput('matchFuncT20M', 'Select match function', matchFuncs),                      
-                                                    selectInput('matchT20M', 'Select IPL match ', T20MMatches,selectize=FALSE, size=15),    
+                                                    selectInput('matchT20M', 'Select T20 match ', T20MMatches,selectize=FALSE, size=15),    
                                                     uiOutput("selectTeamT20M"),
                                                     radioButtons("plotOrTableT20M", label = h4("Plot or table"),                                
                                                                  choices = c("Plot" = 1, "Table" = 2),                                                   
@@ -302,7 +302,7 @@ shinyUI(fluidPage(
                                                   h4('Analyze an Intl T20 match'),                                                        
                                                   sidebarPanel(
                                                     selectInput('matchFuncT20W', 'Select match function', matchFuncs),                      
-                                                    selectInput('matchT20W', 'Select IPL match ', T20WMatches,selectize=FALSE, size=15),    
+                                                    selectInput('matchT20W', 'Select T20 match ', T20WMatches,selectize=FALSE, size=15),    
                                                     uiOutput("selectTeamT20W"),
                                                     radioButtons("plotOrTableT20W", label = h4("Plot or table"),                                
                                                                  choices = c("Plot" = 1, "Table" = 2),                                                   
@@ -360,11 +360,11 @@ shinyUI(fluidPage(
                                            )
                                            
                                          ),
-                                  tabPanel("Intl BBL  Match",
+                                  tabPanel("BBL  Match",
                                            h4('Analyze BBL T20 match'),                                                        
                                            sidebarPanel(
                                              selectInput('matchFuncBBL', 'Select match function', matchFuncs),                      
-                                             selectInput('matchBBL', 'Select IPL match ', BBLMatches,selectize=FALSE, size=15),    
+                                             selectInput('matchBBL', 'Select BBL match ', BBLMatches,selectize=FALSE, size=15),    
                                              uiOutput("selectTeamBBL"),
                                              radioButtons("plotOrTableBBL", label = h4("Plot or table"),                                
                                                           choices = c("Plot" = 1, "Table" = 2),                                                   
@@ -419,7 +419,26 @@ shinyUI(fluidPage(
                                                     tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                              )
                                            )
-                                           
+                                  ),
+                                  tabPanel("NTB  Match",
+                                           h4('Analyze NTB T20 match'),                                                        
+                                           sidebarPanel(
+                                             selectInput('matchFuncNTB', 'Select match function', matchFuncs),                      
+                                             selectInput('matchNTB', 'Select NTB match ', NTBMatches,selectize=FALSE, size=15),    
+                                             uiOutput("selectTeamNTB"),
+                                             radioButtons("plotOrTableNTB", label = h4("Plot or table"),                                
+                                                          choices = c("Plot" = 1, "Table" = 2),                                                   
+                                                          selected = 1,inline=T)                                                                  
+                                             
+                                           ),
+                                           mainPanel(
+                                             uiOutput("plotOrPrintNTBMatch"),                                                       
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
+                                                    tags$h5((tags$i("Dec 25,2016"))),                                                       
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                             )
+                                           ) 
                                   )
                                   
                        )),
@@ -461,6 +480,26 @@ shinyUI(fluidPage(
                                              )
                                            )
                                            
+                                  ),
+                                  tabPanel("PSL  Match",
+                                           h4('Analyze PSL T20 match'),                                                        
+                                           sidebarPanel(
+                                             selectInput('matchFuncPSL', 'Select match function', matchFuncs),                      
+                                             selectInput('matchPSL', 'Select PSL match ', PSLMatches,selectize=FALSE, size=15),    
+                                             uiOutput("selectTeamPSL"),
+                                             radioButtons("plotOrTablePSL", label = h4("Plot or table"),                                
+                                                          choices = c("Plot" = 1, "Table" = 2),                                                   
+                                                          selected = 1,inline=T)                                                                  
+                                             
+                                           ),
+                                           mainPanel(
+                                             uiOutput("plotOrPrintPSLMatch"),                                                       
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
+                                                    tags$h5((tags$i("Dec 25,2016"))),                                                       
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                             )
+                                           ) 
                                   )
                                   
                       )),
@@ -503,6 +542,26 @@ shinyUI(fluidPage(
                                              )
                                            )
                                            
+                                  ),
+                                  tabPanel("WBB  Match",
+                                           h4('Analyze WBBL T20 match'),                                                        
+                                           sidebarPanel(
+                                             selectInput('matchFuncWBB', 'Select match function', matchFuncs),                      
+                                             selectInput('matchWBB', 'Select WBB match ', WBBMatches,selectize=FALSE, size=15),    
+                                             uiOutput("selectTeamWBB"),
+                                             radioButtons("plotOrTableWBB", label = h4("Plot or table"),                                
+                                                          choices = c("Plot" = 1, "Table" = 2),                                                   
+                                                          selected = 1,inline=T)                                                                  
+                                             
+                                           ),
+                                           mainPanel(
+                                             uiOutput("plotOrPrintWBBMatch"),                                                       
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
+                                                    tags$h5((tags$i("Dec 25,2016"))),                                                       
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                             )
+                                           ) 
                                   )
                                   
                         )),

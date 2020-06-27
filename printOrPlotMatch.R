@@ -20,6 +20,13 @@ printOrPlotMatch <- function(input,output,t20type="IPL"){
       m <- strsplit(as.character(input$matchT20W),"-")
     else if (t20type == "BBL")  
       m <- strsplit(as.character(input$matchBBL),"-")
+    else if (t20type == "NTB")  
+      m <- strsplit(as.character(input$matchNTB),"-")
+    else if (t20type == "PSL")  
+      m <- strsplit(as.character(input$matchPSL),"-")
+    else if (t20type == "WBB")  
+      m <- strsplit(as.character(input$matchWBB),"-")    
+    
     # Get the teams
     teams <- c(m[[1]][1],m[[1]][2])
   
@@ -50,6 +57,24 @@ printOrPlotMatch <- function(input,output,t20type="IPL"){
       })
       otherTeam = setdiff(teams,input$teamBBL)
       cat("T20 team=",input$teamBBL,"other team=",otherTeam)
+    } else if (t20type == "NTB"){
+      output$selectTeamNTB <- renderUI({ 
+        selectInput('teamNTB', 'Choose team',choices=teams,selected=input$teamNTB)
+      })
+      otherTeam = setdiff(teams,input$teamNTB)
+      cat("T20 team=",input$teamNTB,"other team=",otherTeam)
+    } else if (t20type == "PSL"){
+      output$selectTeamPSL <- renderUI({ 
+        selectInput('teamPSL', 'Choose team',choices=teams,selected=input$teamPSL)
+      })
+      otherTeam = setdiff(teams,input$teamPSL)
+      cat("T20 team=",input$teamPSL,"other team=",otherTeam)
+    } else if (t20type == "WBB"){
+      output$selectTeamWBB <- renderUI({ 
+        selectInput('teamWBB', 'Choose team',choices=teams,selected=input$teamWBB)
+      })
+      otherTeam = setdiff(teams,input$teamWBB)
+      cat("T20 team=",input$teamWBB,"other team=",otherTeam)
     }
     
     print(otherTeam)
@@ -63,6 +88,14 @@ printOrPlotMatch <- function(input,output,t20type="IPL"){
       a <- analyzeMatches(input$matchT20W,input$matchFuncT20W,input$plotOrTableT20W,input$teamT20W,otherTeam,t20type)
     else if (t20type == "BBL")
       a <- analyzeMatches(input$matchBBL,input$matchFuncBBL,input$plotOrTableBBL,input$teamBBL,otherTeam,t20type)
+    else if (t20type == "NTB")
+      a <- analyzeMatches(input$matchNTB,input$matchFuncNTB,input$plotOrTableNTB,input$teamNTB,otherTeam,t20type)
+    else if (t20type == "PSL")
+      a <- analyzeMatches(input$matchPSL,input$matchFuncPSL,input$plotOrTablePSL,input$teamPSL,otherTeam,t20type)
+    else if (t20type == "WBB")
+      a <- analyzeMatches(input$matchWBB,input$matchFuncWBB,input$plotOrTableWBB,input$teamWBB,otherTeam,t20type)
+    
+    
     head(a)
     a
     

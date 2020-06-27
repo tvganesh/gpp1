@@ -36,6 +36,24 @@ analyzeMatches <- function(match,matchFunc,plotOrTable,team,opposition,t20type) 
         load(BBLmatch)
         matchDF <- overs  
         
+    } else if (t20type == "NTB"){
+        NTBmatch <- paste("./ntb/ntbMatches/", match,".RData",sep="")
+        cat("analymatchmen NTB=",getwd())
+        load(NTBmatch)
+        matchDF <- overs  
+        
+    } else if (t20type == "PSL"){
+        PSLmatch <- paste("./psl/pslMatches/", match,".RData",sep="")
+        cat("analymatchmen PSL=",getwd())
+        load(PSLmatch)
+        matchDF <- overs  
+        
+    } else if (t20type == "WBB"){
+        WBBmatch <- paste("./wbb/wbbMatches/", match,".RData",sep="")
+        cat("analymatchmen WBB=",getwd())
+        load(WBBmatch)
+        matchDF <- overs  
+        
     }
 
     cat("dim(match=",dim(matchDF),"\n")    

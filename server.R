@@ -362,6 +362,35 @@ shinyServer(function(input, output,session) {
       analyzeBowlers(input$bowlerNTB,input$bowlerFuncNTB, "NTB")
     })
     
+    ########################################  NTB T20 Match  #############################################
+    # Analyze and display T20 Match plot
+    output$NTBMatchPlot <- renderPlot({ 
+      print("t20 plot")
+      printOrPlotMatch(input, output,"NTB")
+      
+    })
+    
+    # Analyze and display T20 Match table
+    output$NTBMatchPrint <- renderTable({ 
+      print("t20 print")
+      a <- printOrPlotMatch(input, output,"NTB")
+      head(a)
+      a 
+      
+    })
+    # Output either a table or a plot 
+    output$plotOrPrintNTBMatch <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch(input, output,"NTB"))){
+        print("Hello&&&&&&&&&&&&&&&")
+        tableOutput("NTBMatchPrint")
+      }
+      else{ #Else plot
+        plotOutput("NTBMatchPlot")
+      }
+      
+    })
+    
     ##########################################################################################
     # PSL T20
     
@@ -374,6 +403,35 @@ shinyServer(function(input, output,session) {
     # Analyze and display bowler plots
     output$bowlerPlotPSL <- renderPlot({  
       analyzeBowlers(input$bowlerPSL,input$bowlerFuncPSL, "PSL")
+    })
+    
+    ########################################  PSL T20 Match  #############################################
+    # Analyze and display T20 Match plot
+    output$PSLMatchPlot <- renderPlot({ 
+      print("t20 plot")
+      printOrPlotMatch(input, output,"PSL")
+      
+    })
+    
+    # Analyze and display T20 Match table
+    output$PSLMatchPrint <- renderTable({ 
+      print("t20 print")
+      a <- printOrPlotMatch(input, output,"PSL")
+      head(a)
+      a 
+      
+    })
+    # Output either a table or a plot 
+    output$plotOrPrintPSLMatch <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch(input, output,"PSL"))){
+        print("Hello&&&&&&&&&&&&&&&")
+        tableOutput("PSLMatchPrint")
+      }
+      else{ #Else plot
+        plotOutput("PSLMatchPlot")
+      }
+      
     })
     
     ##########################################################################################
@@ -389,6 +447,37 @@ shinyServer(function(input, output,session) {
     output$bowlerPlotWBB <- renderPlot({  
       analyzeBowlers(input$bowlerWBB,input$bowlerFuncWBB, "WBB")
     })
+    
+    ########################################  WBBL T20 Match  #############################################
+    # Analyze and display T20 Match plot
+    output$WBBMatchPlot <- renderPlot({ 
+      print("t20 plot")
+      printOrPlotMatch(input, output,"WBB")
+      
+    })
+    
+    # Analyze and display T20 Match table
+    output$WBBMatchPrint <- renderTable({ 
+      print("t20 print")
+      a <- printOrPlotMatch(input, output,"WBB")
+      head(a)
+      a 
+      
+    })
+    # Output either a table or a plot 
+    output$plotOrPrintWBBMatch <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch(input, output,"WBB"))){
+        print("Hello&&&&&&&&&&&&&&&")
+        tableOutput("WBBMatchPrint")
+      }
+      else{ #Else plot
+        plotOutput("WBBMatchPlot")
+      }
+      
+    })
+    
+    ##########################################################################################
     
     ##########################################################################################
     # ODI Men
