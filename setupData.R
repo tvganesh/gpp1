@@ -1,3 +1,13 @@
+#####################################################################################################
+#
+# Title :  GooglyPlusPLus - An interactive app to analyze T20 and ODI matches 
+# Designed and developed by: Tinniam V Ganesh
+# Date : 28 Jun 2020
+# File: setupData.R
+# More details: https://gigadom.in/
+# Note: This must be executed at first create the necessary Rds files for batsmen and bowlers
+# for a team before using the Shiny app.
+#########################################################################################################
 source("IPLutilities.R")
 
 # Setup data for IPL

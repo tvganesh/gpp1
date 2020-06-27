@@ -1,10 +1,10 @@
 #########################################################################################################
 #
-# Title :  GooglyPlus - An interactive app to analyze IPL Players, teams and matches 
+# Title :  GooglyPlusPLus - An interactive app to analyze T20 and ODI matches 
 # Designed and developed by: Tinniam V Ganesh
-# Date : 25 Dec 2016
+# Date : 28 Jun 2020
 # File: ui.R
-# More details: https://gigadom.wordpress.com/
+# More details: https://gigadom.in/
 #
 #########################################################################################################
 source("data.R")
@@ -1074,7 +1074,7 @@ shinyUI(fluidPage(
              p("This Shiny app 'GooglyPlusPlus' has been designed and developed by  Tinniam V Ganesh, Dec 25 2016"),
              p("The data for this Shiny app has been taken from Cricsheet - http://http://cricsheet.org/"),
              p("More details about this app and for other posts, see my blog
-                    http://gigadom.wordpress.com/"),
+                    https://gigadom.in/"),
              a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr"),
              h5("Please see"),
              a(href="https://cran.r-project.org/web/packages/yorkr/index.html","How to use GooglyPlusPlus?"))

@@ -1,3 +1,12 @@
+#####################################################################################################
+#
+# Title :  GooglyPlusPLus - An interactive app to analyze T20 and ODI matches 
+# Designed and developed by: Tinniam V Ganesh
+# Date : 28 Jun 2020
+# File: BBLutilities.R
+# More details: https://gigadom.in/
+#
+#########################################################################################################
 library(dplyr)
 
 # Run this function first. This is imporant to create the data sets

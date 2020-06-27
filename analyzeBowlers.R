@@ -1,10 +1,10 @@
 #########################################################################################################
 #
-# Title :  GooglyPlusPlus - An interactive app to analyze Players, teams and matches 
+# Title :  GooglyPlusPLus - An interactive app to analyze T20 and ODI matches 
 # Designed and developed by: Tinniam V Ganesh
-# Date : 17 Jun 2020
+# Date : 28 Jun 2020
 # File: analyzeBowlers.R
-# More details: https://gigadom.wordpress.com/
+# More details: https://gigadom.in/
 #
 #########################################################################################################
 # Analyze IPL bowlers

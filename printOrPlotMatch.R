@@ -1,9 +1,10 @@
-# ############################################################################################333333
-# Title :  GooglyPlus - An interactive app to analyze IPL Players, teams and matches 
+#####################################################################################################
+#
+# Title :  GooglyPlusPLus - An interactive app to analyze T20 and ODI matches 
 # Designed and developed by: Tinniam V Ganesh
-# Date : 5 Jan 2016
-# File: printOrPlotIPLMatch
-# More details: https://gigadom.wordpress.com/
+# Date : 28 Jun 2020
+# File: printOrPlotMatch.R
+# More details: https://gigadom.in/
 #
 #########################################################################################################
 printOrPlotMatch <- function(input,output,t20type="IPL"){
