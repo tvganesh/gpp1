@@ -26,7 +26,20 @@ analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opp
         load(T20Mmatch)
         matchesDF <- matches
         
+    } else if (t20type == "T20W"){
+        T20Wmatch <- paste("./t20/t20WomenMatches2Teams/", match2,".RData",sep="")
+        cat("T20W2=",getwd(),"\n")
+        load(T20Wmatch)
+        matchesDF <- matches
+        
+    } else if (t20type == "BBL"){
+        BBLmatch <- paste("./bbl/bblMatches2Teams/", match2,".RData",sep="")
+        cat("BBL2=",getwd(),"\n")
+        load(BBLmatch)
+        matchesDF <- matches
+        
     }
+    
     cat("dim1=",dim(matchesDF),"\n")
     
     if(plotOrTable1 == 1){

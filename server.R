@@ -349,6 +349,36 @@ shinyServer(function(input, output,session) {
       
     })
     
+    #################################### BBL  Matches between 2 teams ######################
+    # Analyze Head to head confrontation of BBL T20  teams
+    
+    # Analyze and display BBL T20  Matches between 2 teams plot
+    output$BBLMatch2TeamsPlot <- renderPlot({ 
+      print("Women plot")
+      printOrPlotMatch2Teams(input, output,"BBL")
+      
+    })
+    
+    # Analyze and display BBL Match table
+    output$BBLMatch2TeamsPrint <- renderTable({ 
+      print("Women table")
+      a <- printOrPlotMatch2Teams(input, output,"BBL")
+      a
+    })
+    
+    # Output either a table or a plot 
+    output$plotOrPrintBBLMatch2teams <-  renderUI({ 
+      print("Women's match ")
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch2Teams(input, output,"BBL"))){
+        tableOutput("BBLMatch2TeamsPrint")
+      }
+      else{ #Else plot
+        plotOutput("BBLMatch2TeamsPlot")
+      }
+      
+    })
+    
     ##########################################################################################
     # Natwest T20
     
