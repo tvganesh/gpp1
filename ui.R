@@ -277,6 +277,27 @@ shinyUI(fluidPage(
                                                            tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                                     )
                                                   )
+                                         ),
+                                         # Bowlers tab
+                                         tabPanel("Intl T20 Women bowlers",
+                                                  
+                                                  h4('Analyze T20 Women bowler performances'),
+                                                  
+                                                  sidebarPanel(
+                                                    selectInput('bowlerFuncT20W', 'Select function', bowlerFuncs),
+                                                    selectInput('bowlerT20W', 'Select T20 bowler', T20WBowlers,selectize=FALSE, size=20)
+                                                    
+                                                    
+                                                  ),
+                                                  mainPanel(
+                                                    plotOutput('bowlerPlotT20W'),
+                                                    column(7, offset=4,
+                                                           tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                           tags$h5((tags$i("Dec 25,2016"))),
+                                                           tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                                    )
+                                                  )
+                                                  
                                          )
                                          
                                )),

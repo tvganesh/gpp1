@@ -240,6 +240,12 @@ shinyServer(function(input, output,session) {
     })   
     
     
+    # Analyze and display bowler plots
+    output$bowlerPlotT20W <- renderPlot({  
+      analyzeBowlers(input$bowlerT20W,input$bowlerFuncT20W, "T20W")
+      
+    })
+    
     ##########################################################################################
     # Big Bash League
     

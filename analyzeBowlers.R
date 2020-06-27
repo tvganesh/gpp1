@@ -32,6 +32,13 @@ analyzeBowlers <- function(bowler,func, t20type="IPL") {
       # Get the team names
       teamNames <- getT20MTeams(i)
       print(teamNames)
+    } else if (t20type == "T20W"){
+      dir1="./t20/t20WomenBattingBowlingDetails/"
+      i <- getT20WTeamIndex_bowler(bowler, dir1)
+      print(i)
+      # Get the team names
+      teamNames <- getT20WTeams(i)
+      print(teamNames)
     }
     
     
