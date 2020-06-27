@@ -604,6 +604,26 @@ shinyUI(fluidPage(
                                              )
                                            )
                                            
+                                  ),
+                                  tabPanel("ODI Mens  Match",
+                                           h4('Analyze ODI Mens match'),                                                        
+                                           sidebarPanel(
+                                             selectInput('matchFuncODIM', 'Select match function', matchFuncs),                      
+                                             selectInput('matchODIM', 'Select ODIM match ', ODIMMatches,selectize=FALSE, size=15),    
+                                             uiOutput("selectTeamODIM"),
+                                             radioButtons("plotOrTableODIM", label = h4("Plot or table"),                                
+                                                          choices = c("Plot" = 1, "Table" = 2),                                                   
+                                                          selected = 1,inline=T)                                                                  
+                                             
+                                           ),
+                                           mainPanel(
+                                             uiOutput("plotOrPrintODIMMatch"),                                                       
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
+                                                    tags$h5((tags$i("Dec 25,2016"))),                                                       
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                             )
+                                           ) 
                                   )
                                    
                      )),
@@ -645,8 +665,28 @@ shinyUI(fluidPage(
                                                 tags$h6("Data source Cricsheet: http://cricsheet.org/")
                                          )
                                        )
-                                       
+                              ),
+                              tabPanel("ODI Womens  Match",
+                                       h4('Analyze ODI Womens match'),                                                        
+                                       sidebarPanel(
+                                         selectInput('matchFuncODIW', 'Select match function', matchFuncs),                      
+                                         selectInput('matchODIW', 'Select ODIW match ', ODIWMatches,selectize=FALSE, size=15),    
+                                         uiOutput("selectTeamODIW"),
+                                         radioButtons("plotOrTableODIW", label = h4("Plot or table"),                                
+                                                      choices = c("Plot" = 1, "Table" = 2),                                                   
+                                                      selected = 1,inline=T)                                                                  
+                                         
+                                       ),
+                                       mainPanel(
+                                         uiOutput("plotOrPrintODIWMatch"),                                                       
+                                         column(7, offset=4,
+                                                tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),                        
+                                                tags$h5((tags$i("Dec 25,2016"))),                                                       
+                                                tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
+                                         )
+                                       ) 
                               )
+                              
                               
     )),
                                        

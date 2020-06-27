@@ -493,6 +493,34 @@ shinyServer(function(input, output,session) {
       analyzeBowlers(input$bowlerODIM,input$bowlerFuncODIM, "ODIM")
     })
     
+    ########################################  ODI Men Match  #############################################
+    # Analyze and display ODI Men Match plot
+    output$ODIMMatchPlot <- renderPlot({ 
+      print("t20 plot")
+      printOrPlotMatch(input, output,"ODIM")
+      
+    })
+    
+    # Analyze and display ODI Men Match table
+    output$ODIMMatchPrint <- renderTable({ 
+      print("t20 print")
+      a <- printOrPlotMatch(input, output,"ODIM")
+      head(a)
+      a 
+      
+    })
+    # Output either a table or a plot 
+    output$plotOrPrintODIMMatch <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch(input, output,"ODIM"))){
+        print("Hello&&&&&&&&&&&&&&&")
+        tableOutput("ODIMMatchPrint")
+      }
+      else{ #Else plot
+        plotOutput("ODIMMatchPlot")
+      }
+      
+    })
     
     ##########################################################################################
     # ODI Women
@@ -507,6 +535,37 @@ shinyServer(function(input, output,session) {
     output$bowlerPlotODIW <- renderPlot({  
       analyzeBowlers(input$bowlerODIW,input$bowlerFuncODIW, "ODIW")
     })
+    
+    ########################################  ODI Women Match  #############################################
+    # Analyze and display ODI Women Match plot
+    output$ODIWMatchPlot <- renderPlot({ 
+      print("t20 plot")
+      printOrPlotMatch(input, output,"ODIW")
+      
+    })
+    
+    # Analyze and display ODI Women Match table
+    output$ODIWMatchPrint <- renderTable({ 
+      print("t20 print")
+      a <- printOrPlotMatch(input, output,"ODIW")
+      head(a)
+      a 
+      
+    })
+    # Output either a table or a plot 
+    output$plotOrPrintODIWMatch <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch(input, output,"ODIW"))){
+        print("Hello&&&&&&&&&&&&&&&")
+        tableOutput("ODIWMatchPrint")
+      }
+      else{ #Else plot
+        plotOutput("ODIWMatchPlot")
+      }
+      
+    })
+    
+    ##########################################################################################
     
 })
 

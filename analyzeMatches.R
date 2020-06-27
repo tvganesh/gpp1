@@ -54,6 +54,18 @@ analyzeMatches <- function(match,matchFunc,plotOrTable,team,opposition,t20type) 
         load(WBBmatch)
         matchDF <- overs  
         
+    } else if (t20type == "ODIM"){
+        ODIMmatch <- paste("./odi/odiMenMatches/", match,".RData",sep="")
+        cat("analymatchmen ODIM=",getwd())
+        load(ODIMmatch)
+        matchDF <- overs  
+        
+    } else if (t20type == "ODIW"){
+        ODIWmatch <- paste("./odi/odiWomenMatches/", match,".RData",sep="")
+        cat("analymatchmen ODIW=",getwd())
+        load(ODIWmatch)
+        matchDF <- overs  
+        
     }
 
     cat("dim(match=",dim(matchDF),"\n")    

@@ -26,7 +26,11 @@ printOrPlotMatch <- function(input,output,t20type="IPL"){
       m <- strsplit(as.character(input$matchPSL),"-")
     else if (t20type == "WBB")  
       m <- strsplit(as.character(input$matchWBB),"-")    
-    
+    else if (t20type == "ODIM")  
+      m <- strsplit(as.character(input$matchODIM),"-") 
+    else if (t20type == "ODIW")  
+      m <- strsplit(as.character(input$matchODIW),"-")     
+        
     # Get the teams
     teams <- c(m[[1]][1],m[[1]][2])
   
@@ -75,6 +79,18 @@ printOrPlotMatch <- function(input,output,t20type="IPL"){
       })
       otherTeam = setdiff(teams,input$teamWBB)
       cat("T20 team=",input$teamWBB,"other team=",otherTeam)
+    } else if (t20type == "ODIM"){
+      output$selectTeamODIM <- renderUI({ 
+        selectInput('teamODIM', 'Choose team',choices=teams,selected=input$teamODIM)
+      })
+      otherTeam = setdiff(teams,input$teamODIM)
+      cat("T20 team=",input$teamODIM,"other team=",otherTeam)
+    } else if (t20type == "ODIW"){
+      output$selectTeamODIW <- renderUI({ 
+        selectInput('teamODIW', 'Choose team',choices=teams,selected=input$teamODIW)
+      })
+      otherTeam = setdiff(teams,input$teamODIW)
+      cat("T20 team=",input$teamODIW,"other team=",otherTeam)
     }
     
     print(otherTeam)
@@ -94,7 +110,10 @@ printOrPlotMatch <- function(input,output,t20type="IPL"){
       a <- analyzeMatches(input$matchPSL,input$matchFuncPSL,input$plotOrTablePSL,input$teamPSL,otherTeam,t20type)
     else if (t20type == "WBB")
       a <- analyzeMatches(input$matchWBB,input$matchFuncWBB,input$plotOrTableWBB,input$teamWBB,otherTeam,t20type)
-    
+    else if (t20type == "ODIM")
+      a <- analyzeMatches(input$matchODIM,input$matchFuncODIM,input$plotOrTableODIM,input$teamODIM,otherTeam,t20type)    
+    else if (t20type == "ODIW")
+      a <- analyzeMatches(input$matchODIW,input$matchFuncODIW,input$plotOrTableODIW,input$teamODIW,otherTeam,t20type)   
     
     head(a)
     a
