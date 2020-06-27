@@ -24,7 +24,8 @@ printOrPlotMatch2Teams <- function(input,output,t20type="IPL"){
         p <- strsplit(as.character(input$match2NTB),"-")    
     else if (t20type == "PSL")  
         p <- strsplit(as.character(input$match2PSL),"-")    
-    
+    else if (t20type == "WBB")  
+        p <- strsplit(as.character(input$match2WBB),"-")      
     
     
     teams2 <- c(p[[1]][1],p[[1]][2])
@@ -72,6 +73,12 @@ printOrPlotMatch2Teams <- function(input,output,t20type="IPL"){
         })
         otherTeam = setdiff(teams2,input$team2PSL)
         cat("T20 team=",input$team2PSL,"other team=",otherTeam)
+    }  else if (t20type == "WBB"){
+        output$selectTeam2WBB <- renderUI({ 
+            selectInput('team2WBB', 'Choose team',choices=teams2,selected=input$team2WBB)
+        })
+        otherTeam = setdiff(teams2,input$team2WBB)
+        cat("T20 team=",input$team2WBB,"other team=",otherTeam)
     }      
 
     
@@ -94,7 +101,10 @@ printOrPlotMatch2Teams <- function(input,output,t20type="IPL"){
                                   input$repTypeNTB,input$team2NTB,otherTeam,t20type)    
     else if (t20type == "PSL")
         a <- analyzeMatches2Teams(input$match2PSL,input$matches2TeamFuncPSL,input$plotOrTable1PSL,
-                                  input$repTypePSL,input$team2PSL,otherTeam,t20type)      
+                                  input$repTypePSL,input$team2PSL,otherTeam,t20type)   
+    else if (t20type == "WBB")
+        a <- analyzeMatches2Teams(input$match2WBB,input$matches2TeamFuncWBB,input$plotOrTable1WBB,
+                                  input$repTypeWBB,input$team2WBB,otherTeam,t20type)   
     
     print("Output oa anlsy2")
     head(a)    

@@ -567,6 +567,37 @@ shinyServer(function(input, output,session) {
       
     })
     
+    #################################### WBB  Matches between 2 teams ######################
+    # Analyze Head to head confrontation of WBB T20  teams
+    
+    # Analyze and display WBB T20  Matches between 2 teams plot
+    output$WBBMatch2TeamsPlot <- renderPlot({ 
+      print("Women plot")
+      printOrPlotMatch2Teams(input, output,"WBB")
+      
+    })
+    
+    # Analyze and display WBB Match table
+    output$WBBMatch2TeamsPrint <- renderTable({ 
+      print("Women table")
+      a <- printOrPlotMatch2Teams(input, output,"WBB")
+      a
+    })
+    
+    # Output either a table or a plot 
+    output$plotOrPrintWBBMatch2teams <-  renderUI({ 
+      print("Women's match ")
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotMatch2Teams(input, output,"WBB"))){
+        tableOutput("WBBMatch2TeamsPrint")
+      }
+      else{ #Else plot
+        plotOutput("WBBMatch2TeamsPlot")
+      }
+      
+    })
+    
+    
     ##########################################################################################
     
     ##########################################################################################

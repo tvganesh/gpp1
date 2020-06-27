@@ -662,6 +662,31 @@ shinyUI(fluidPage(
                                                     tags$h6("Data source Cricsheet: http://cricsheet.org/")                                 
                                              )
                                            ) 
+                                  ),
+                                  # Analyze Head-to-Head WBBL  matches
+                                  tabPanel("Head to head",
+                                           h4('Head-to-head between Womens BBL teams'),
+                                           sidebarPanel(
+                                             selectInput('matches2TeamFuncWBB', 'Select function', matches2TeamsFuncs),
+                                             selectInput('match2WBB', 'Select matches', WBBMatches2Teams,selectize=FALSE, size=13),                                
+                                             uiOutput("selectTeam2WBB"),
+                                             radioButtons("plotOrTable1WBB", label = h4("Plot or table"),
+                                                          choices = c("Plot" = 1, "Table" = 2), 
+                                                          selected = 1,inline=T),
+                                             radioButtons("repTypeWBB", label = h4("Report Type"),
+                                                          choices = c("Summary" = 1, "Detailed" = 2), 
+                                                          selected = 1,inline=T)
+                                             
+                                           ),
+                                           mainPanel(
+                                             uiOutput("plotOrPrintWBBMatch2teams"),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           ) 
+                                           
                                   )
                                   
                         )),

@@ -50,6 +50,12 @@ analyzeMatches2Teams <- function(match2,matchFunc,plotOrTable1,repType, team,opp
         load(PSLmatch)
         matchesDF <- matches
         
+    } else if (t20type == "WBB"){
+        WBBmatch <- paste("./wbb/wbbMatches2Teams/", match2,".RData",sep="")
+        cat("WBB2=",getwd(),"\n")
+        load(WBBmatch)
+        matchesDF <- matches
+        
     }
     
     cat("dim1=",dim(matchesDF),"\n")
