@@ -896,6 +896,32 @@ shinyServer(function(input, output,session) {
       
     })
     
+    ################################ ODI Women  Teams's overall performance ##############################
+    # Analyze overall ODI Women  team performance plots
+    output$ODIWTeamPerfOverallPlot <- renderPlot({ 
+      printOrPlotTeamPerfOverall(input, output,"ODIW")
+      
+    })
+    
+    # Analyze and display ODIW Match table
+    output$ODIWTeamPerfOverallPrint <- renderTable({ 
+      a <- printOrPlotTeamPerfOverall(input, output,"ODIW")
+      a
+      
+    })
+    # Output either a table or a plot 
+    output$printOrPlotODIWTeamPerfoverall <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotTeamPerfOverall(input, output,"ODIW"))){
+        tableOutput("ODIWTeamPerfOverallPrint")
+      }
+      else{ #Else plot
+        plotOutput("ODIWTeamPerfOverallPlot")
+      }
+      
+    })
+    
+    
 })
 
 

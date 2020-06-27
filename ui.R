@@ -895,9 +895,9 @@ shinyUI(fluidPage(
                                            ) 
                                            
                                   ),
-                                  # Analyze ODIM  Team Overall Perf
+                                  # Analyze ODI Men Team Overall Perf
                                   tabPanel("Overall Performance",
-                                           h4("Analyze ODIM team's overall performance"),
+                                           h4("Analyze ODI Men team's overall performance"),
                                            sidebarPanel(
                                              selectInput('overallperfFuncODIM', 'Select function', teamOverallPerfFunc),
                                              selectInput('teamMatchesODIM', 'Select the team', ODIMTeamsAll,selectize=FALSE, size=13),
@@ -997,6 +997,30 @@ shinyUI(fluidPage(
                                        ),
                                        mainPanel(
                                          uiOutput("plotOrPrintODIWMatch2teams"),
+                                         column(7, offset=4,
+                                                tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                tags$h5((tags$i("Dec 25,2016"))),
+                                                tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                         )
+                                       ) 
+                                       
+                              ),
+                              # Analyze ODI Women Team Overall Perf
+                              tabPanel("Overall Performance",
+                                       h4("Analyze ODI Women team's overall performance"),
+                                       sidebarPanel(
+                                         selectInput('overallperfFuncODIW', 'Select function', teamOverallPerfFunc),
+                                         selectInput('teamMatchesODIW', 'Select the team', ODIWTeamsAll,selectize=FALSE, size=13),
+                                         uiOutput("RankODIW"),
+                                         radioButtons("plotOrTable2ODIW", label = h4("Plot or table"),
+                                                      choices = c("Plot" = 1, "Table" = 2), 
+                                                      selected = 1,inline=T),
+                                         radioButtons("repType2ODIW", label = h4("Report Type"),
+                                                      choices = c("Summary" = 1, "Detailed" = 2), 
+                                                      selected = 1,inline=T)
+                                       ),
+                                       mainPanel(
+                                         uiOutput('printOrPlotODIWTeamPerfoverall'),
                                          column(7, offset=4,
                                                 tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
                                                 tags$h5((tags$i("Dec 25,2016"))),
