@@ -137,19 +137,9 @@ shinyUI(fluidPage(
                                             )
                                           ) 
                                           
-                                 ),
+                                        )
                                  
-                                 tabPanel("About",
-                                          h3("GooglyPlus - Analyzing IPL Players, teams and matches with plots and tables"),
-                                          p("This Shiny app is based on my R package 'yorkr'. In this Shiny app, I use  the
-                    yorkr package to analyze the performances of IPL cricketers,teams, matches."),
-                                          p("The R package 'yorkr' has been authored by Tinniam V Ganesh for analyzing  performances of IPL cricketers
-                    teams, individudal IPL match, head-to-head and IPL teamds"),
-                                          p("This Shiny app 'GooglyPlus' has been designed and developed by  Tinniam V Ganesh, Dec 25 2016"),
-                                          p("The data for this Shiny app has been taken from Cricsheet - http://http://cricsheet.org/"),
-                                          p("More details about this app and for other posts, see my blog
-                    http://gigadom.wordpress.com/")
-                                 )))),
+                                 ))),
     
     ############################# International T20 (Men) ################################
     tabPanel("Intl. T20 (men)",navbarPage("GooglyPlusPlus - International T20 (men)",
@@ -1075,15 +1065,19 @@ shinyUI(fluidPage(
                               
     )),
                                        
-    tabPanel("About",h3("GooglyPlus - Analyzing IPL Players, teams and matches with plots and tables"),
+    tabPanel("About GooglyPlusPlus",h3("GooglyPlusPlus - Analyzing ODI,T20 Players, teams and matches with plots and tables"),
              p("This Shiny app is based on my R package 'yorkr'. In this Shiny app, I use  the
-                    yorkr package to analyze the performances of IPL cricketers,teams, matches."),
-             p("The R package 'yorkr' has been authored by Tinniam V Ganesh for analyzing  performances of IPL cricketers
-                    teams, individudal IPL match, head-to-head and IPL teamds"),
-             p("This Shiny app 'GooglyPlus' has been designed and developed by  Tinniam V Ganesh, Dec 25 2016"),
+                    yorkr package to analyze the performances of cricketers,teams, matches."),
+             p("GooglyPlusPlus an handle ODI (men),ODI (women), Intl T20 (men), Intl T20 (women), IPL, BBL, NTB, PSL and Women BBL"),
+             p("The R package 'yorkr' has been authored by Tinniam V Ganesh for analyzing  performances of cricketers
+                    teams, individudal match, head-to-head and overall team performances"),
+             p("This Shiny app 'GooglyPlusPlus' has been designed and developed by  Tinniam V Ganesh, Dec 25 2016"),
              p("The data for this Shiny app has been taken from Cricsheet - http://http://cricsheet.org/"),
              p("More details about this app and for other posts, see my blog
-                    http://gigadom.wordpress.com/") )
+                    http://gigadom.wordpress.com/"),
+             a(href="https://cran.r-project.org/web/packages/yorkr/index.html", " Based on R package yorkr"),
+             h5("Please see"),
+             a(href="https://cran.r-project.org/web/packages/yorkr/index.html","How to use GooglyPlusPlus?"))
   
     
   )))
