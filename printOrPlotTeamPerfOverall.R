@@ -78,6 +78,16 @@ printOrPlotTeamPerfOverall <- function(input,output,t20type="IPL"){
                                input$plotOrTable2WBB,
                                input$repType2WBB,t20type)
         
+    } else if (t20type == "ODIM"){
+        output$RankODIM = renderUI({
+            selectInput('rankODIM', 'Choose the rank',choices=rankValues,selected=input$rankODIM)
+        })
+        print(input$teamMatchesODIM)
+        n <- strsplit(as.character(input$teamMatchesODIM),"-")
+        analyzeTeamPerfOverall(input$teamMatchesODIM,input$overallperfFuncODIM,n[[1]][2],input$rankODIM,
+                               input$plotOrTable2ODIM,
+                               input$repType2ODIM,t20type)
+        
     }
 
 }

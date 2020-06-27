@@ -794,6 +794,33 @@ shinyServer(function(input, output,session) {
       }
       
     })
+    
+    ################################ ODI Men  Teams's overall performance ##############################
+    # Analyze overall ODIM  team performance plots
+    output$ODIMTeamPerfOverallPlot <- renderPlot({ 
+      printOrPlotTeamPerfOverall(input, output,"ODIM")
+      
+    })
+    
+    # Analyze and display ODIM Match table
+    output$ODIMTeamPerfOverallPrint <- renderTable({ 
+      a <- printOrPlotTeamPerfOverall(input, output,"ODIM")
+      a
+      
+    })
+    # Output either a table or a plot 
+    output$printOrPlotODIMTeamPerfoverall <-  renderUI({ 
+      # Check if output is a dataframe. If so, print
+      if(is.data.frame(scorecard <- printOrPlotTeamPerfOverall(input, output,"ODIM"))){
+        tableOutput("ODIMTeamPerfOverallPrint")
+      }
+      else{ #Else plot
+        plotOutput("ODIMTeamPerfOverallPlot")
+      }
+      
+    })
+    
+    
     ##########################################################################################
     # ODI Women
     

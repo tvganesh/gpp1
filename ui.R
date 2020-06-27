@@ -894,6 +894,30 @@ shinyUI(fluidPage(
                                              )
                                            ) 
                                            
+                                  ),
+                                  # Analyze ODIM  Team Overall Perf
+                                  tabPanel("Overall Performance",
+                                           h4("Analyze ODIM team's overall performance"),
+                                           sidebarPanel(
+                                             selectInput('overallperfFuncODIM', 'Select function', teamOverallPerfFunc),
+                                             selectInput('teamMatchesODIM', 'Select the team', ODIMTeamsAll,selectize=FALSE, size=13),
+                                             uiOutput("RankODIM"),
+                                             radioButtons("plotOrTable2ODIM", label = h4("Plot or table"),
+                                                          choices = c("Plot" = 1, "Table" = 2), 
+                                                          selected = 1,inline=T),
+                                             radioButtons("repType2ODIM", label = h4("Report Type"),
+                                                          choices = c("Summary" = 1, "Detailed" = 2), 
+                                                          selected = 1,inline=T)
+                                           ),
+                                           mainPanel(
+                                             uiOutput('printOrPlotODIMTeamPerfoverall'),
+                                             column(7, offset=4,
+                                                    tags$h5((tags$i("Designed and developed by Tinniam V Ganesh"))),
+                                                    tags$h5((tags$i("Dec 25,2016"))),
+                                                    tags$h6("Data source Cricsheet: http://cricsheet.org/")
+                                             )
+                                           ) 
+                                           
                                   )
                                    
                      )),

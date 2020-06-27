@@ -58,6 +58,12 @@ analyzeTeamPerfOverall <- function(matches,matchFunc,team,rankV,plotOrTable2,rep
     matchesDF <- matches
     print(repType2)
     
+  } else if (t20type == "ODIM"){
+    ODIMmatch <- paste("./odi/odiAllMatchesAllTeams/", matches,".RData",sep="")
+    load(ODIMmatch)
+    matchesDF <- matches
+    print(repType2)
+    
   }
     
     if(plotOrTable2 == 1){
